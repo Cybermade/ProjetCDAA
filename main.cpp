@@ -1,22 +1,14 @@
 #include "mainwindow.h"
-
+#include <thread>
+#include <chrono>
 #include <QApplication>
 #include <iostream>
-#include "Personne.h"
-#include "GestionPersonnes.h"
+#include "contact.h"
+#include "contactsmanagement.h"
+#include "currenttime.h"
 
 
 
-void affichePersonne(const Personne& P)
-{
-    std::cout <<P.getNom()<<std::endl
-    <<P.getPrenom()<<std::endl
-    <<P.getEntreprise()<<std::endl
-    <<P.getMail()<<std::endl
-    <<P.getTelephone()<<std::endl<<P.getPhoto()<<std::endl
-      <<P.getDatedecreation()<<std::endl;
-
-}
 
 int main(int argc, char *argv[])
 {
@@ -31,15 +23,26 @@ int main(int argc, char *argv[])
     std::string Mail = "nazimatgmaildotcom";
     std::string Telephone = "21498024913";
     std::string Photo = "NOOO";
-    std::string Datedecreation = "01/01/1970";
+    std::string Nom2 = "Idk bro";
+    
 
-    Personne p;
-    Personne p1(Nom,Prenom,Entreprise,Mail,Telephone,Photo,Datedecreation);
+    Contactsmanagement C;
 
-    GestionPersonnes GP;
-    GP.AddPersonne(p);
-    GP.AddPersonne(p1);
-    GP.AfficherPersonnes();
+    Contact p ={Nom,Prenom,Entreprise,Mail,Telephone,Photo};
+    Contact p1(Nom,Prenom,Entreprise,Mail,Telephone,Photo);
+    Contact p3 = p1;
+
+    C.addContact(p);
+    C.addContact(p1);
+
+    C.showSheetAll();
+    C.editContact(4,Nom2,Photo,Mail,Entreprise,Telephone,Prenom);
+    C.deleteAll();
+    C.deleteAll();
+    C.showSheetAll();
+
+
+
 
     return 0;
 

@@ -9,16 +9,16 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    GestionPersonnes.cpp \
-    Interaction.cpp \
-    Personne.cpp \
+    contact.cpp \
+    contactsmanagement.cpp \
+    currenttime.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    GestionPersonnes.h \
-    Interaction.h \
-    Personne.h \
+    contact.h \
+    contactsmanagement.h \
+    currenttime.h \
     mainwindow.h
 
 FORMS += \
