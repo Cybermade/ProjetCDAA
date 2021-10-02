@@ -30,7 +30,7 @@ void Contactsmanagement::editContact(unsigned int id, std::string &name, std::st
         }
     }
     catch (unsigned int id) {
-        std::cout << "The size of the list of contacts should be greater than the id"<<std::endl;
+        std::cout << "The Size Of The List Of Contacts Should Be Greater Than The Id"<<std::endl;
     }
 
 }
@@ -52,7 +52,7 @@ void Contactsmanagement::showSheetAll()
         }
         }
     catch (int size) {
-        std::cout << "No contact(s) to show"<<std::endl;
+        std::cout << "No Contact(s) To Show"<<std::endl;
 
     }
 
@@ -73,7 +73,7 @@ void Contactsmanagement::deleteContact(unsigned int id)
     }
     catch(unsigned int id)
     {
-        std::cout << "The size of the list of contacts should be greater than the id"<<std::endl;
+        std::cout << "The Size Of The List Of Contacts Should Be Greater Than The Id"<<std::endl;
     }
 
 
@@ -94,7 +94,7 @@ void Contactsmanagement::deleteAll()
     }
     catch(int size)
     {
-        std::cout << "You cannot delete an already empty list"<< std::endl;
+        std::cout << "You Cannot Delete An Already Empty List"<< std::endl;
     }
 
 }

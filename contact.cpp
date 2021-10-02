@@ -39,10 +39,11 @@ void Contact::showContactSheet() const
              <<" Phone Number : "<<this->getPhoneNumber()<<" Photo : "<<this->getPhoto()
                << " Creation Date : "<<this->getCreationDate()<<std::endl;
     if(m_historiquedemodif.size()>0)
-    std::cout<<"Modifications from the last one :"<<std::endl;
+    {std::cout<<"Modifications from the last one :"<<std::endl;
     for(auto const& modif:m_historiquedemodif)
     {
         std::cout<<modif<<"\n";
+    }
     }
 
 }
