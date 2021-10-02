@@ -12,7 +12,9 @@ private:
     //and not the creation instance time
     void update();
 public:
+    //Default constructor
     CurrentTime();
+    //Deconstructor
     ~CurrentTime();
 
     //Print the time dd/mm/yyyy hh:mm:ss !!!in int format

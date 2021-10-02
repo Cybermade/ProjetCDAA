@@ -23,6 +23,9 @@ public:
     //Default Constructor
     Contact();
 
+    //Destructor
+    ~Contact();
+
     //Constructor
     Contact(std::string& name,std::string& firstname,std::string& company
              ,std::string& mail,std::string& phonenumber,
@@ -54,8 +57,7 @@ public:
     void setPhoto(std::string& photo);
     void setCreationDate(std::string& creationdate);
 
-    //Destructor
-    ~Contact();
+
 
 
 };

@@ -1,26 +1,26 @@
 #include <iostream>
 #include "contactsmanagement.h"
 
-Contactsmanagement::Contactsmanagement():T(),m_Datesuppresion("No Delete Yet")
+Contactsmanagement::Contactsmanagement():T(),m_datelastdelete("No Delete Yet")
 {
     //void
 }
 void Contactsmanagement::addContact(const Contact &c)
 {
-    this->m_Gestionpersonnes.push_front(c);
+    this->m_contactsmanagement.push_front(c);
 }
 
 void Contactsmanagement::addContact(std::string name, std::string firstname, std::string company, std::string mail, std::string phonenumber, std::string photo)
 {
-    this->m_Gestionpersonnes.push_front(Contact(name,firstname,company,mail,phonenumber,photo));
+    this->m_contactsmanagement.push_front(Contact(name,firstname,company,mail,phonenumber,photo));
 
 }
 
 void Contactsmanagement::editContact(unsigned int id, std::string &name, std::string &firstname, std::string &company, std::string &mail, std::string &phonenumber, std::string &photo)
 {   try {
-        if ( m_Gestionpersonnes.size() > id )
+        if ( m_contactsmanagement.size() > id )
         {
-            std::list<Contact>::iterator itr = m_Gestionpersonnes.begin();
+            std::list<Contact>::iterator itr = m_contactsmanagement.begin();
             std::advance(itr,id);
             itr->edit(name,firstname,company,mail,phonenumber,photo);
         }
@@ -36,15 +36,15 @@ void Contactsmanagement::editContact(unsigned int id, std::string &name, std::st
 }
 
 void Contactsmanagement::showSheetAll()
-{   int size = m_Gestionpersonnes.size();
+{   int size = m_contactsmanagement.size();
     try {
         if(size > 0)
         {
-            for(auto const &c :m_Gestionpersonnes)
+            for(auto const &c :m_contactsmanagement)
             {
                 c.showContactSheet();
             }
-            std::cout << "Last Delete : "<<m_Datesuppresion<< std::endl;
+            std::cout << "Last Delete : "<<m_datelastdelete<< std::endl;
         }
         else
         {
@@ -60,12 +60,12 @@ void Contactsmanagement::showSheetAll()
 
 void Contactsmanagement::deleteContact(unsigned int id)
 {   try {
-        if ( m_Gestionpersonnes.size() > id )
+        if ( m_contactsmanagement.size() > id )
         {
-            std::list<Contact>::iterator itr = m_Gestionpersonnes.begin();
+            std::list<Contact>::iterator itr = m_contactsmanagement.begin();
             std::advance(itr,id);
-            m_Gestionpersonnes.erase(itr);
-            m_Datesuppresion = T.getDateddmmyyyyhhmm();
+            m_contactsmanagement.erase(itr);
+            m_datelastdelete = T.getDateddmmyyyyhhmm();
         }
         else{
             throw id;
@@ -80,12 +80,12 @@ void Contactsmanagement::deleteContact(unsigned int id)
 }
 
 void Contactsmanagement::deleteAll()
-{   int size = m_Gestionpersonnes.size();
+{   int size = m_contactsmanagement.size();
     try {
         if(size > 0)
         {
-            m_Gestionpersonnes.clear();
-            m_Datesuppresion = T.getDateddmmyyyyhhmm();
+            m_contactsmanagement.clear();
+            m_datelastdelete = T.getDateddmmyyyyhhmm();
         }
         else
         {
@@ -101,6 +101,6 @@ void Contactsmanagement::deleteAll()
 
 Contactsmanagement::~Contactsmanagement()
 {
-    m_Gestionpersonnes.clear();
+    m_contactsmanagement.clear();
 }
 
