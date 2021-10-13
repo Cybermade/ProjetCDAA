@@ -5,6 +5,10 @@ InteractionHandler::InteractionHandler()
 
 }
 
+InteractionHandler::InteractionHandler(std::list<Interaction>& interactions)
+{
+    this->Interactions = interactions;
+}
 
 bool InteractionHandler::isParticipant(Interaction interaction, Contact contact)
 {

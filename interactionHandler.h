@@ -17,6 +17,8 @@ public:
      */
     InteractionHandler();
 
+    InteractionHandler(std::list<Interaction>& interactions);
+
     /**
      * @brief isParticipants
      * @param interaction
