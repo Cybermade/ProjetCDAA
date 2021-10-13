@@ -3,9 +3,12 @@
 #include <chrono>
 #include <QApplication>
 #include <iostream>
+#include <iomanip>
 #include "contact.h"
 #include "contactsmanagement.h"
 #include "currenttime.h"
+#include "interaction.h"
+#include "meeting.h"
 
 
 
@@ -42,15 +45,23 @@ int main(int argc, char *argv[])
     C.addContact(p1);
 
     C.showSheetAll();
-    //C.editContact(1,Nom2,Photo,Mail,Entreprise,Telephone,Prenom);
+    C.editContact(1,Nom2,Photo,Mail,Entreprise,Telephone,Prenom);
     C.deleteContact(1);
     C.showSheetAll();
     C.deleteAll();
     C.deleteAll();
     C.showSheetAll();
 
+    std::cout << p;
 
+    Interaction meet = Interaction();
+    std::cout << meet;
 
+    std::string type = "Meeting";
+    std::string title = "Une superbe réunion";
+    std::string note = "ceci est une note";
+    Interaction meet2 = Interaction(type, title, p, note);
+    std::cout << meet2;
 
     return 0;
 
