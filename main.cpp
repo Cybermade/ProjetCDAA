@@ -8,7 +8,6 @@
 #include "contactsmanagement.h"
 #include "currenttime.h"
 #include "interaction.h"
-#include "meeting.h"
 
 
 

@@ -12,6 +12,8 @@ SOURCES += \
     contact.cpp \
     contactsmanagement.cpp \
     currenttime.cpp \
+    interaction.cpp \
+    interactionHandler.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -19,6 +21,8 @@ HEADERS += \
     contact.h \
     contactsmanagement.h \
     currenttime.h \
+    interaction.h \
+    interactionHandler.h \
     mainwindow.h
 
 FORMS += \
