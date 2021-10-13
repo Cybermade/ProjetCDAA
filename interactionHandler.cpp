@@ -35,3 +35,8 @@ std::list<Interaction> InteractionHandler::getAllInteractions()
 {
     return this->Interactions;
 }
+
+std::list<Interaction> InteractionHandler::getAllInteractionsByType(std::string& type)
+{
+
+}

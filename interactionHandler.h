@@ -46,11 +46,11 @@ public:
     std::list<Interaction> getAllInteractions();
 
     /**
-     * @brief getAllInteractionsByTitle
-     * @param title
-     * @return All interactions with the same title
+     * @brief getAllInteractionsByType
+     * @param type
+     * @return All interactions with the same type
      */
-    std::list<Interaction> getAllInteractionsByTitle(std::string& title);
+    std::list<Interaction> getAllInteractionsByType(std::string& type);
 
     /**
      * @brief getAllInteractionsByParticipant
