@@ -40,6 +40,11 @@ Contact Interaction::getParticipant() const
     return this->Participant;
 }
 
+std::string Interaction::getType() const
+{
+    return this->type;
+}
+
 void Interaction::setType(std::string &type)
 {
     this->type = type;
