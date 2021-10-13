@@ -53,6 +53,24 @@ void Contact::ajouterDateDeModif()
     this->m_historiquedemodif.push_front(T.getDateddmmyyyyhhmmss());
 }
 
+std::ostream& operator<<(std::ostream& stream, const Contact& contact)
+{
+    std::string firstname =  (!contact.getFirstName().empty()) ? contact.getFirstName() : "Undefined";
+    std::string lastname =  (!contact.getName().empty()) ? contact.getName() : "Undefined";
+    std::string mail =  (!contact.getMail().empty()) ? contact.getMail() : "Undefined";
+    std::string phoneNumber =  (!contact.getPhoneNumber().empty()) ? contact.getPhoneNumber() : "Undefined";
+    std::string compagny =  (!contact.getCompany().empty()) ? contact.getCompany() : "Undefined";
+    std::string creationDate = contact.getCreationDate();
+
+    return stream << "Firstname: " + firstname + "\n"
+                     + "LastName: " + lastname + "\n"
+                     + "Mail: " + mail + "\n"
+                     + "Phone number: " + phoneNumber + "\n"
+                     + "Compagny: " + compagny + "\n"
+                     + "Creation date: " + creationDate + "\n";
+
+}
+
 std::string Contact::getName() const
 {
   return m_name;
