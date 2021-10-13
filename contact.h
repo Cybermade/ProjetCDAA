@@ -3,6 +3,8 @@
 #include <string>
 #include <ctime>
 #include <list>
+#include <typeinfo>
+
 class Contact
 {
 private:
@@ -17,7 +19,6 @@ private:
     std::list <std::string>  m_historiquedemodif;
 
     void ajouterDateDeModif();
-
 
 public:
     //Default Constructor
@@ -58,7 +59,7 @@ public:
     void setCreationDate(std::string& creationdate);
 
 
-
     friend std::ostream& operator<<(std::ostream& stream, const Contact& contact);
+    friend bool operator==(const Contact& a, const Contact& b);
 
 };

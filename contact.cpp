@@ -71,6 +71,13 @@ std::ostream& operator<<(std::ostream& stream, const Contact& contact)
 
 }
 
+bool operator==(const Contact& a, const Contact& b)
+{
+    return typeid (a) == typeid (b)
+           && a.getFirstName() == b.getFirstName()
+           && a.getName() == b.getName();
+}
+
 std::string Contact::getName() const
 {
   return m_name;
