@@ -13,7 +13,7 @@ Contact::Contact():T(),m_name("Unknown Name"),m_firstname("Unkown FirstName")
          ,std::string& mail,std::string& phonenumber,
          std::string& photo)
     :T(),m_name(name),m_firstname(firstname),m_company(company),m_mail(mail)
-    ,m_phonenumber(phonenumber),m_photo(photo),m_creationdate(T.getDateddmmyyyyhhmmss())
+    ,m_phonenumber(phonenumber),m_photo(photo),m_creationdate(T.getDateddmmyyyy())
 {
 
 }
