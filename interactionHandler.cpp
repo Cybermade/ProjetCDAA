@@ -26,3 +26,8 @@ void InteractionHandler::setInteractions(std::list<Interaction> interactions)
 {
     this->Interactions = interactions;
 }
+
+std::list<Interaction> InteractionHandler::getAllInteractions()
+{
+    return this->Interactions;
+}
