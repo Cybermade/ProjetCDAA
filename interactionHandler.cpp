@@ -10,7 +10,7 @@ InteractionHandler::InteractionHandler(std::list<Interaction>& interactions)
     this->Interactions = interactions;
 }
 
-bool InteractionHandler::isParticipant(Interaction interaction, Contact contact)
+bool InteractionHandler::isParticipant(Interaction& interaction, Contact& contact)
 {
    return interaction.getParticipant() == contact;
 }
@@ -26,7 +26,7 @@ std::string InteractionHandler::briefListOfParticipants(Interaction interaction)
     return participantsInfos;
 }
 
-void InteractionHandler::setInteractions(std::list<Interaction> interactions)
+void InteractionHandler::setInteractions(std::list<Interaction>& interactions)
 {
     this->Interactions = interactions;
 }

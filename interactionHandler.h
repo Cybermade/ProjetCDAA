@@ -24,7 +24,7 @@ public:
      * @param interaction
      * @return bool if a participants is in an interaction
      */
-    bool isParticipant(Interaction interaction, Contact contact);
+    bool isParticipant(Interaction& interaction, Contact& contact);
 
     /**
      * @brief briefListOfParticipants
@@ -37,7 +37,7 @@ public:
      * @brief setInteractions
      * @param interactions : interacations to be added
      */
-    void setInteractions(std::list<Interaction> interactions);
+    void setInteractions(std::list<Interaction>& interactions);
 
     /**
      * @brief getAllInteractions
@@ -71,21 +71,20 @@ public:
      * @brief deleteAnInteraction
      * @param InteractionTodelete
      */
-    void deleteAnInteraction(Interaction InteractionTodelete);
+    void deleteAnInteraction(Interaction& InteractionTodelete);
 
     /**
      * @brief addAnInteraction
      * @param InteractionToAdd
      */
-    void addAnInteraction(Interaction InteractionToAdd);
+    void addAnInteraction(Interaction& InteractionToAdd);
 
     /**
      * @brief changeParticipantOfAnInteraction
      * @param InteractionToUpdate
      * @param newParticipant
      */
-    void changeParticipantOfAnInteraction(Interaction InteractionToUpdate, Contact newParticipant);
-
+    void changeParticipantOfAnInteraction(Interaction& InteractionToUpdate, Contact& newParticipant);
 
 };
 
