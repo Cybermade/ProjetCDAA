@@ -59,6 +59,13 @@ public:
      * @return note : note of the interaction
      */
     std::string getNote() const;
+
+    /**
+     * @brief getType
+     * @return type : type of interaction
+     */
+    std::string getType() const;
+
     /**
      * @brief setTitle
      * @param title : title to change
@@ -80,6 +87,8 @@ public:
      * @param name : name of the interaction
      */
     void setType(std::string& type);
+
+
 
  /**
  * @brief operator <<
