@@ -69,10 +69,10 @@ std::ostream& operator<<(std::ostream& stream, const Interaction& interaction)
 {
   InteractionHandler interactionHandler = InteractionHandler();
 
-  return stream <<  interaction.type +
-                    " : [title] --> " + interaction.title + "; "
-                    " [date] --> " + interaction.date + "; "
-                    " [Note] --> " + interaction.note + "; "
+  return stream <<  interaction.getType() +
+                    " : [title] --> " + interaction.getTitle() + "; "
+                    " [date] --> " + interaction.getDate() + "; "
+                    " [Note] --> " + interaction.getNote() + "; "
                     " [participant] --> " + interactionHandler.briefListOfParticipants(interaction) +
                     ".\n";
 }
