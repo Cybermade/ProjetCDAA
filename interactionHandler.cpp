@@ -43,4 +43,11 @@ std::list<Interaction> InteractionHandler::getAllInteractions()
 std::list<Interaction> InteractionHandler::getAllInteractionsByType(std::string& type)
 {
 
+std::list<Interaction> InteractionHandler::getAllInteractionsByDate(std::string &time)
+{
+    std::list<Interaction> interactionByDate;
+    for(const Interaction& interaction : this->interactions)
+        if(interaction.getDate() == time)
+            interactionByDate.push_back(interaction);
+    return interactionByDate;
 }
