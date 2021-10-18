@@ -45,6 +45,11 @@ std::string Interaction::getType() const
     return this->type;
 }
 
+std::string Interaction::getModificationDate() const
+{
+    return this->modficationDate;
+}
+
 void Interaction::setType(std::string &type)
 {
     this->type = type;
@@ -65,6 +70,10 @@ void Interaction::setParticipants(Contact &participant)
     this->participant = participant;
 }
 
+void Interaction::setModificationDate()
+{
+    CurrentTime time = CurrentTime();
+    this->modficationDate = time.getDateddmmyyyy();
 }
 
 std::ostream& operator<<(std::ostream& stream, const Interaction& interaction)
@@ -76,5 +85,6 @@ std::ostream& operator<<(std::ostream& stream, const Interaction& interaction)
                     " [date] --> " + interaction.getDate() + "; "
                     " [Note] --> " + interaction.getNote() + "; "
                     " [participant] --> " + interactionHandler.briefListOfParticipants(interaction) +
+                    " [modification date] --> " +interaction.getModificationDate() +
                     ".\n";
 }

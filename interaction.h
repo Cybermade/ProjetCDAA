@@ -18,6 +18,7 @@ private:
     std::string date;
     Contact participant;
     std::string note;
+    std::string modficationDate = "No modification";
 
 public:
     /**
@@ -66,6 +67,8 @@ public:
      */
     std::string getType() const;
 
+    std::string getModificationDate() const;
+
     /**
      * @brief setTitle
      * @param title : title to change
@@ -87,6 +90,9 @@ public:
      * @param name : name of the interaction
      */
     void setType(std::string& type);
+
+
+    void setModificationDate();
 
 
 
