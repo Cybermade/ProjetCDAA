@@ -3,6 +3,8 @@
 #include <string>
 #include <ctime>
 #include <list>
+#include <typeinfo>
+
 class Contact
 {
 private:
@@ -14,10 +16,9 @@ private:
     std::string m_phonenumber;
     std::string m_photo;
     std::string m_creationdate;
-    std::list <std::string>  m_historiquedemodif;
+    std::string m_modificationdate;
 
     void ajouterDateDeModif();
-
 
 public:
     //Default Constructor
@@ -46,6 +47,7 @@ public:
     std::string getPhoneNumber() const;
     std::string getPhoto() const;
     std::string getCreationDate() const;
+    std::string getModificationDate() const;
 
 
     //SETTERS
@@ -55,9 +57,10 @@ public:
     void setMail(std::string& mail);
     void setPhoneNumber(std::string& phonenumber);
     void setPhoto(std::string& photo);
-    void setCreationDate(std::string& creationdate);
 
 
 
+    friend std::ostream& operator<<(std::ostream& stream, const Contact& contact);
+    friend bool operator==(const Contact& a, const Contact& b);
 
 };

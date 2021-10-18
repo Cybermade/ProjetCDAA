@@ -5,7 +5,7 @@
 Contact::Contact():T(),m_name("Unknown Name"),m_firstname("Unkown FirstName")
   ,m_company("Unknown Company"),m_mail("UnknownAtUnknownDotUnknown")
   ,m_phonenumber("Unknown Numberphone"),m_photo("Unknown Photo")
-  ,m_creationdate("Unknown CreationDate")
+  ,m_creationdate(T.getDateddmmyyyy())
 {
 
 }
@@ -13,7 +13,7 @@ Contact::Contact():T(),m_name("Unknown Name"),m_firstname("Unkown FirstName")
          ,std::string& mail,std::string& phonenumber,
          std::string& photo)
     :T(),m_name(name),m_firstname(firstname),m_company(company),m_mail(mail)
-    ,m_phonenumber(phonenumber),m_photo(photo),m_creationdate(T.getDateddmmyyyyhhmmss())
+    ,m_phonenumber(phonenumber),m_photo(photo),m_creationdate(T.getDateddmmyyyy())
 {
 
 }
@@ -28,7 +28,6 @@ void Contact::edit(std::string &name, std::string &firstname, std::string &compa
     this->setMail(mail);
     this->setPhoneNumber(phonenumber);
     this->setPhoto(photo);
-    //this->setCreationDate(creationdate);
     this->ajouterDateDeModif();
 }
 
@@ -38,9 +37,9 @@ void Contact::showContactSheet() const
               <<" Company : "<<this->getCompany()<<" Mail : "<<this->getMail()
              <<" Phone Number : "<<this->getPhoneNumber()<<" Photo : "<<this->getPhoto()
                << " Creation Date : "<<this->getCreationDate()<<std::endl;
-    if(m_historiquedemodif.size()>0)
+    if(m_modificationdate.size()>0)
     {std::cout<<"Modifications from the last one :"<<std::endl;
-    for(auto const& modif:m_historiquedemodif)
+    for(auto const& modif:m_modificationdate)
     {
         std::cout<<modif<<"\n";
     }
@@ -50,7 +49,34 @@ void Contact::showContactSheet() const
 
 void Contact::ajouterDateDeModif()
 {
-    this->m_historiquedemodif.push_front(T.getDateddmmyyyyhhmmss());
+    this->m_modificationdate = T.getDateddmmyyyy();
+}
+
+std::ostream& operator<<(std::ostream& stream, const Contact& contact)
+{
+    std::string firstname =  (!contact.getFirstName().empty()) ? contact.getFirstName() : "Undefined";
+    std::string lastname =  (!contact.getName().empty()) ? contact.getName() : "Undefined";
+    std::string mail =  (!contact.getMail().empty()) ? contact.getMail() : "Undefined";
+    std::string phoneNumber =  (!contact.getPhoneNumber().empty()) ? contact.getPhoneNumber() : "Undefined";
+    std::string company =  (!contact.getCompany().empty()) ? contact.getCompany() : "Undefined";
+    std::string creationDate = contact.getCreationDate();
+    std::string modificationDate = (!contact.getModificationDate().empty()) ? contact.getModificationDate() : "Undefined";
+
+    return stream << "Firstname: " + firstname + "\n"
+                     + "LastName: " + lastname + "\n"
+                     + "Mail: " + mail + "\n"
+                     + "Phone number: " + phoneNumber + "\n"
+                     + "Compagny: " + company + "\n"
+                     + "Creation date: " + creationDate + "\n"
+                     + "Modification date: " + modificationDate + "\n";
+
+}
+
+bool operator==(const Contact& a, const Contact& b)
+{
+    return typeid (a) == typeid (b)
+           && a.getFirstName() == b.getFirstName()
+           && a.getName() == b.getName();
 }
 
 std::string Contact::getName() const
@@ -81,7 +107,10 @@ std::string Contact::getCreationDate() const
 {
     return m_creationdate;
 }
-
+std::string Contact::getModificationDate() const
+{
+    return m_modificationdate;
+}
 void Contact::setName(std::string &name)
 {
     m_name = name;
@@ -106,11 +135,8 @@ void Contact::setPhoto(std::string &photo)
 {
     m_photo = photo;
 }
-void Contact::setCreationDate(std::string &creationdate)
-{
-    m_creationdate = creationdate;
-}
+
 Contact::~Contact()
 {
-    m_historiquedemodif.clear();
+
 }

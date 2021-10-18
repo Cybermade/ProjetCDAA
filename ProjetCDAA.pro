@@ -12,14 +12,20 @@ SOURCES += \
     contact.cpp \
     contactsmanagement.cpp \
     currenttime.cpp \
+    interaction.cpp \
+    interactionHandler.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    todo.cpp
 
 HEADERS += \
     contact.h \
     contactsmanagement.h \
     currenttime.h \
-    mainwindow.h
+    interaction.h \
+    interactionHandler.h \
+    mainwindow.h \
+    todo.h
 
 FORMS += \
     mainwindow.ui
