@@ -64,7 +64,7 @@ public:
      * @param time
      * @return All interactions with the same date
      */
-    std::list<Interaction> getAllInteractionsByDate(CurrentTime& time);
+    std::list<Interaction> getAllInteractionsByDate(std::string& time);
 
 
     /**
