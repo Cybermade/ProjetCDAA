@@ -79,13 +79,6 @@ public:
      */
     void addAnInteraction(Interaction& InteractionToAdd);
 
-    /**
-     * @brief changeParticipantOfAnInteraction
-     * @param InteractionToUpdate
-     * @param newParticipant
-     */
-    void changeParticipantOfAnInteraction(Interaction& InteractionToUpdate, Contact& newParticipant);
-
 };
 
 
