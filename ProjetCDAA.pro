@@ -15,7 +15,8 @@ SOURCES += \
     interaction.cpp \
     interactionHandler.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    todo.cpp
 
 HEADERS += \
     contact.h \
@@ -23,7 +24,8 @@ HEADERS += \
     currenttime.h \
     interaction.h \
     interactionHandler.h \
-    mainwindow.h
+    mainwindow.h \
+    todo.h
 
 FORMS += \
     mainwindow.ui

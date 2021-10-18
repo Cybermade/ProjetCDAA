@@ -8,6 +8,7 @@ InteractionHandler::InteractionHandler()
 InteractionHandler::InteractionHandler(std::list<Interaction>& interactions)
 {
     this->interactions = interactions;
+}
 
 void InteractionHandler::addAnInteraction(Interaction &InteractionToAdd)
 {
