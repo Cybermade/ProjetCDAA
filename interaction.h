@@ -16,7 +16,7 @@ private:
     std::string type;
     std::string title;
     std::string date;
-    Contact Participant;
+    Contact participant;
     std::string note;
 
 public:

@@ -15,7 +15,7 @@ Interaction::Interaction(std::string& type, std::string& title, Contact& partici
     this->title = title;
     this->date = time.getDateddmmyyyy();
     this->note = note;
-    this->Participant = participant;
+    this->participant = participant;
 }
 
 Interaction::~Interaction(){}
@@ -37,7 +37,7 @@ std::string Interaction::getNote() const
 
 Contact Interaction::getParticipant() const
 {
-    return this->Participant;
+    return this->participant;
 }
 
 std::string Interaction::getType() const
@@ -62,7 +62,9 @@ void Interaction::setTitle(std::string &title)
 
 void Interaction::setParticipants(Contact &participant)
 {
-    this->Participant = participant;
+    this->participant = participant;
+}
+
 }
 
 std::ostream& operator<<(std::ostream& stream, const Interaction& interaction)
