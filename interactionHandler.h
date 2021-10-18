@@ -9,7 +9,7 @@
 class InteractionHandler
 {
 private:
-    std::list<Interaction> Interactions;
+    std::list<Interaction> interactions;
 
 public:
     /**

@@ -7,7 +7,11 @@ InteractionHandler::InteractionHandler()
 
 InteractionHandler::InteractionHandler(std::list<Interaction>& interactions)
 {
-    this->Interactions = interactions;
+    this->interactions = interactions;
+
+void InteractionHandler::addAnInteraction(Interaction &InteractionToAdd)
+{
+    this->interactions.push_back(InteractionToAdd);
 }
 
 bool InteractionHandler::isParticipant(Interaction& interaction, Contact& contact)
@@ -28,12 +32,12 @@ std::string InteractionHandler::briefListOfParticipants(Interaction interaction)
 
 void InteractionHandler::setInteractions(std::list<Interaction>& interactions)
 {
-    this->Interactions = interactions;
+    this->interactions = interactions;
 }
 
 std::list<Interaction> InteractionHandler::getAllInteractions()
 {
-    return this->Interactions;
+    return this->interactions;
 }
 
 std::list<Interaction> InteractionHandler::getAllInteractionsByType(std::string& type)
