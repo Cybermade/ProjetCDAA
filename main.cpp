@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
     std::string Mail = "Marieatgmaildotcom";
     std::string Telephone = "21498024913";
     std::string Photo = "photo1";
+
     std::string Nom2 = "Durant";
     std::string Prenom2 = "Maurice";
     std::string Entreprise2 = "Facebook";
@@ -34,12 +35,25 @@ int main(int argc, char *argv[])
     std::string Telephone2 = "113241523312";
     std::string Photo2 = "photo2";
 
+
+
     
 
     Contactsmanagement C;
 
     Contact p ={Nom,Prenom,Entreprise,Mail,Telephone,Photo};
     Contact p1(Nom2,Prenom2,Entreprise2,Mail2,Telephone2,Photo2);
+    Contact p2 ={Nom2,Prenom2,Entreprise,Mail,Telephone,Photo};
+
+    C += p;
+    C = C + p1;
+    C += p;
+    C -= p1;
+    std::cout <<std::boolalpha<<(p1==p);
+    C.editContact(1,Nom2,Photo,Mail,Entreprise,Telephone,Prenom);
+    C.showSheetAll();
+/*
+    C.showSheetAll();
 
 
     C.addContact(p);
@@ -47,12 +61,12 @@ int main(int argc, char *argv[])
 
     C.showSheetAll();
     C.editContact(1,Nom2,Photo,Mail,Entreprise,Telephone,Prenom);
-    C.deleteContact(1);
+    C.deleteContact(p1);
     C.showSheetAll();
     C.deleteAll();
     C.deleteAll();
-    C.showSheetAll();
-
+    C.showSheetAll();*/
+    /*
     std::cout << "\n// surchage opérateur << pour contact //" << std::endl;
     std::cout << p;
 
@@ -101,5 +115,4 @@ int main(int argc, char *argv[])
     */
 
     return 0;
-
 }

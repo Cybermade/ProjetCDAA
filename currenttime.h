@@ -8,8 +8,8 @@ private:
     std::tm* now ;
 
     //Update to the current time
-    //it's also called when you call another method to get the right "timenow"
-    //and not the creation instance time
+    //c'est appelé aussi quand une autre methode est appelé pour avoir le réel "timenow"
+    //et non pas le "timenow" de la creation de l'instance
     void update();
 public:
     //Default constructor
@@ -17,19 +17,19 @@ public:
     //Deconstructor
     ~CurrentTime();
 
-    //Print the time dd/mm/yyyy hh:mm:ss !!!in int format
-    // means you'll see 9 instead of 09 for mm for example
+    //Print la date dd/mm/yyyy hh:mm:ss !!!en int format
+    // qui veut dire vous allez voir 9 à la place de 09 pour mm (seulement un exemple)
     void showLocalTime();
 
 
 
-    //return a string format dd/mm/yyyy
+    //retourne un string format dd/mm/yyyy de la date courrante
     std::string getDateddmmyyyy();
 
-    //return a string format dd/mm/yyyy hh:mm:ss
+   //retourne un string format dd/mm/yyyy hh:mm:ss de la date courrante
     std::string getDateddmmyyyyhhmmss();
 
-    //return a string format dd/mm/yyyy hh:mm
+    //retourne un string format dd/mm/yyyy hh:mm de la date courrante
     std::string getDateddmmyyyyhhmm();
 };
 

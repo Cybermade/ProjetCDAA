@@ -26,7 +26,7 @@ std::string InteractionHandler::briefListOfParticipants(Interaction interaction)
     std::string participantsInfos = "";
 
     if(this->isParticipant(interaction, participant))
-        participantsInfos += participant.getFirstName() + " " + participant.getName();
+        participantsInfos += participant.getFirstName() + " " + participant.getLastName();
 
     return participantsInfos;
 }
