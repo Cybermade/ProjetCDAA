@@ -20,6 +20,17 @@ Interaction::Interaction(std::string& type, std::string& title, Contact& partici
 
 Interaction::~Interaction(){}
 
+void Interaction::edit(std::string& type, std::string& title, Contact& participant, std::string& note, std::string date)
+{
+   this->type = type;
+   this->title = title;
+   this->participant = participant;
+   this->note = note;
+   this->date = date;
+
+   setModificationDate();
+}
+
 std::string Interaction::getDate() const
 {
     return this->date;

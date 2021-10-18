@@ -39,6 +39,8 @@ public:
      */
     ~Interaction();
 
+    void edit(std::string& type, std::string& title, Contact& participant, std::string& note, std::string date);
+
     // GETTER & SETTER
     /**
      * @brief getTitle
