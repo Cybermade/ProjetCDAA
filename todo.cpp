@@ -7,12 +7,13 @@ ToDo::ToDo()
 
 ToDo::ToDo(std::string contenu, std::string date)
 {
-    this->contenu = contenu;
+    this->contenu = "@todo " + contenu;
+    this->date = "@date ";
 
     if(date == "")
-        this->date = time.getDateddmmyyyy();
+        this->date += time.getDateddmmyyyy();
     else
-        this->date = date;
+        this->date += date;
 }
 
 const std::string &ToDo::getContenu() const
@@ -37,8 +38,6 @@ void ToDo::setDate(const std::string &newDate)
 
 std::ostream& operator<<(std::ostream& stream, const ToDo& todo)
 {
-    std::string tagToDo = "@todo";
-    std::string tagDate = "@date";
 
-    return stream << tagToDo + " " + todo.contenu + " " + tagDate + " " + todo.date;
+    return stream << todo.contenu + todo.date;
 }
