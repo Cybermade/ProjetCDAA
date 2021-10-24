@@ -107,7 +107,10 @@ public:
      */
     void setType(std::string& newType);
 
-
+    /**
+     * @brief Met à jour la date dernière date de
+     * modification de l'intéraction à la date courante
+     */
     void updateModificationDate();
 
 
