@@ -1,6 +1,7 @@
 #pragma once
 #include "currenttime.h"
 #include "contact.h"
+#include "todo.h"
 #include <string>
 #include <ctime>
 #include <list>
@@ -19,6 +20,7 @@ private:
     Contact participant;
     std::string note;
     std::string modficationDate = "No modification";
+    std::list<ToDo> todos;
 
 public:
     /**
@@ -84,6 +86,12 @@ public:
     std::string getModificationDate() const;
 
     /**
+     * @brief getToDos
+     * @return la liste des ToDo de l'interaction
+     */
+    std::list<ToDo> getToDos() const;
+
+    /**
      * @brief setTitle
      * @param newTitle
      */
@@ -106,6 +114,12 @@ public:
      * @param NewType
      */
     void setType(std::string& newType);
+
+    /**
+     * @brief setTodos
+     * @param newToDos
+     */
+    void setTodos(std::list<ToDo> newToDos);
 
     /**
      * @brief Met à jour la date dernière date de

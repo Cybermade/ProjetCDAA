@@ -61,6 +61,11 @@ std::string Interaction::getModificationDate() const
     return this->modficationDate;
 }
 
+std::list<ToDo> Interaction::getToDos() const
+{
+    return this->todos;
+}
+
 void Interaction::setType(std::string &newType)
 {
     this->type = newType;
@@ -79,6 +84,11 @@ void Interaction::setTitle(std::string &newTitle)
 void Interaction::setParticipants(Contact &newParticipant)
 {
     this->participant = newParticipant;
+}
+
+void Interaction::setTodos(std::list<ToDo> newToDos)
+{
+    this->todos = newToDos;
 }
 
 void Interaction::updateModificationDate()
