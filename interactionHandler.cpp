@@ -15,6 +15,11 @@ void InteractionHandler::addAnInteraction(Interaction &InteractionToAdd)
     this->interactions.push_back(InteractionToAdd);
 }
 
+void InteractionHandler::deleteAnInteraction(Interaction &InteractionTodelete)
+{
+    this->interactions.remove(InteractionTodelete);
+}
+
 bool InteractionHandler::isParticipant(Interaction& interaction, Contact& contact)
 {
    return interaction.getParticipant() == contact;
@@ -54,6 +59,7 @@ std::list<Interaction> InteractionHandler::getAllInteractionsByType(std::string&
 std::list<Interaction> InteractionHandler::getAllInteractionsByParticipant(Contact &participant)
 {
     std::list<Interaction> interactionByParticipant;
+
     for(const Interaction& interaction : this->interactions)
         if(interaction.getParticipant() == participant)
             interactionByParticipant.push_back(interaction);
@@ -67,4 +73,13 @@ std::list<Interaction> InteractionHandler::getAllInteractionsByDate(std::string 
         if(interaction.getDate() == time)
             interactionByDate.push_back(interaction);
     return interactionByDate;
+}
+
+void InteractionHandler::showAllInteractions()
+{
+    for(Interaction &interactionToShow : this->interactions)
+    {
+        std::cout << interactionToShow;
+        std::cout << "\n";
+    }
 }

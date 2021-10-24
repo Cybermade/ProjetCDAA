@@ -50,14 +50,14 @@ public:
     void edit(std::string& type, std::string& title, Contact& participant, std::string& note, std::string date);
 
     /**
-     * @brief addToDo
+     * @brief Ajouter un ToDo à l'interaction
      * @param ToDoToAdd
      * @param interaction
      */
     void addToDo(ToDo ToDoToAdd);
 
     /**
-     * @brief deleteToDo
+     * @brief Supprimer une interaction
      * @param ToDoToDelete
      * @param interaction
      */
@@ -149,7 +149,7 @@ public:
 
     /**
      * @brief operator == override : permet de comparer deux interaction
-     * @param interactionToCompare@ : l'interaction à comparer
+     * @param interactionToCompare : l'interaction à comparer
      * @return bool : true | false
      */
     bool operator==(const Interaction& interacationToCompare);

@@ -57,8 +57,7 @@ std::ostream& operator<<(std::ostream& stream, const Contact& contact)
                      + "Phone number: " + phoneNumber + "\n"
                      + "Compagny: " + company + "\n"
                      + "Creation date: " + creationDate + "\n"
-                     + "Modification date: " + modificationDate + "\n"
-                     + "--------------------------------------------" +"\n";
+                     + "Modification date: " + modificationDate + "\n";
 
 }
 
