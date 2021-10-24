@@ -103,7 +103,7 @@ public:
 
     /**
      * @brief setType
-     * @param type
+     * @param NewType
      */
     void setType(std::string& newType);
 
