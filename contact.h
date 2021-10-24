@@ -168,7 +168,7 @@ public:
 
     /**
      * @brief operator == override : permet de comparer deux contact
-     * @param b : le contact à comparé
+     * @param b : le contact à comparer
      * @return bool : true | false
      */
     bool operator==(const Contact& b);
