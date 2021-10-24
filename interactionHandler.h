@@ -5,7 +5,9 @@
 #include "interaction.h"
 #include "contact.h"
 
-
+/**
+ * @brief Classe InteractionHandler
+ */
 class InteractionHandler
 {
 private:
@@ -13,16 +15,20 @@ private:
 
 public:
     /**
-     * @brief InteractionHandler
+     * @brief Constructeur par défaut
      */
     InteractionHandler();
 
+    /**
+     * @brief Constructeur avec paramètre
+     * @param liste des interacations
+     */
     InteractionHandler(std::list<Interaction>& interactions);
 
     /**
      * @brief isParticipants
      * @param interaction
-     * @return bool if a participants is in an interaction
+     * @return true | false if a participants is in an interaction
      */
     bool isParticipant(Interaction& interaction, Contact& contact);
 
@@ -35,9 +41,9 @@ public:
 
     /**
      * @brief setInteractions
-     * @param interactions : interacations to be added
+     * @param newInteractions
      */
-    void setInteractions(std::list<Interaction>& interactions);
+    void setInteractions(std::list<Interaction>& newInteractions);
 
     /**
      * @brief getAllInteractions

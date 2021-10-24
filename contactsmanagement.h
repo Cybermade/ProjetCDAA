@@ -5,6 +5,9 @@
 #include "contact.h"
 #include "currenttime.h"
 
+/**
+ * @brief La classe contactManagement
+ */
 class Contactsmanagement
 {
 private:
@@ -13,43 +16,92 @@ private:
     std::list<Contact> m_contactsmanagement;//Contacts management
 
 public:
-    //Default Constructor
+    /**
+     * @brief Constructeur par défaut
+     */
     Contactsmanagement();
-    //Destructor
     ~Contactsmanagement();
 
-    //On ajoute un contact directement d'une instance contact
+    /**
+     * @brief ajout d'un contact à la liste de contact
+     * @param c : le contact à ajouter
+     */
     void addContact(const Contact& c);
 
-    //On ajoute un contact via ses infos
+    /**
+     * @brief création + ajout d'un "contact" à partir des informations données
+     * @param name : nom du contact
+     * @param firstname : prénom du contact
+     * @param company : entreprise du contact
+     * @param mail : mail du contact
+     * @param phonenumber : numéro de téléphone du contact
+     * @param photo : uri de la photo du contact
+     */
     void addContact(std::string name, std::string firstname, std::string company, std::string mail, std::string phonenumber, std::string photo);
 
-    //On modifie un contact via son id(son id est seulement sa place dans la list de contacts)
+    /**
+     * @brief modifie un contact en fonction de sa place (id) dans la liste
+     * @param id : place dans la liste du contact
+     * @param name : nom du contact
+     * @param firstname : prénom du contact
+     * @param company : entreprise du contact
+     * @param mail : mail du contact
+     * @param phonenumber : numéro de téléphone du contact
+     * @param photo : uri de la photo du contact
+     */
     void editContact(unsigned int id,std::string& name,
                     std::string& firstname,std::string& company
                      ,std::string& mail,std::string& phonenumber,
                      std::string& photo);
-    //Print les infos de tous les contacts
+
+    /**
+     * @brief Affiche toutes les infos de tous les contacts
+     */
     void showSheetAll()const;
 
-    //id est la position du contact dans la liste
-    //On supprime un contact via son id
+    /**
+     * @brief Supprime un contact en fonction de sa position dans la liste
+     * @param id
+     */
     void deleteContactById(unsigned int id);
 
-    //ON supprime tous les contacts qui sont égales au contact c
+    /**
+     * @brief Supprime tous les contacts correspondant à c
+     * @param c : le contact à supprimer
+     */
     void deleteContact(const Contact& c);
 
-
-    //Surchage de l'operateur "+" pour rajouter un contact a un contactsmanagement (example Cm = Cm + c)
+    /**
+     * @brief operator + overrride
+     * @param c : le contact à ajouter à la liste des contacts
+     * @return Une instance de ContactsManagement
+     */
     Contactsmanagement operator+(const Contact& c);
-    //Surchage de l'operateur "+=" pour rajouter un contact a un contactsmanagement (example Cm += c)
+
+    /**
+     * @brief operator += overrride
+     * @param c : le contact à ajouter à la liste des contacts
+     * @return Une instance de ContactsManagement
+     */
     Contactsmanagement operator+=(const Contact& c);
-    //Surchage de l'operateur "-" pour supprimer un contact d'un contactsmanagement (example Cm = Cm - c)
+
+    /**
+     * @brief operator - override
+     * @param c : le contact à enlever de la liste
+     * @return Une instance de ContactsManagement
+     */
     Contactsmanagement operator-(const Contact& c);
-    //Surchage de l'operateur "-=" pour supprimer un contact d'un contactsmanagement (example Cm -= c)
+
+    /**
+     * @brief operator -= override
+     * @param c : le contact à enlever de la liste
+     * @return Une instance de ContactsManagement
+     */
     Contactsmanagement operator-=(const Contact& c);
 
-    //delete everyone
+    /**
+     * @brief Clear la liste
+     */
     void deleteAll();
 
 

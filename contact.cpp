@@ -16,6 +16,7 @@ Contact::Contact():T(),m_lastname("Unknown Name"),m_firstname("Unkown FirstName"
     ,m_phonenumber(phonenumber),m_photo(photo),m_creationdate(T.getDateddmmyyyy())
 {
 
+
 }
 
 void Contact::edit(std::string &name, std::string &firstname, std::string &company,
@@ -28,14 +29,14 @@ void Contact::edit(std::string &name, std::string &firstname, std::string &compa
     this->setMail(mail);
     this->setPhoneNumber(phonenumber);
     this->setPhoto(photo);
-    this->ajouterDateDeModif();
+    this->updateModificationDate();
 }
 
 
 
 
 
-void Contact::ajouterDateDeModif()
+void Contact::updateModificationDate()
 {
     this->m_modificationdate = T.getDateddmmyyyy();
 }

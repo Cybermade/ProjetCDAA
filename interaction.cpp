@@ -28,7 +28,7 @@ void Interaction::edit(std::string& type, std::string& title, Contact& participa
    this->note = note;
    this->date = date;
 
-   setModificationDate();
+   updateModificationDate();
 }
 
 std::string Interaction::getDate() const
@@ -61,27 +61,27 @@ std::string Interaction::getModificationDate() const
     return this->modficationDate;
 }
 
-void Interaction::setType(std::string &type)
+void Interaction::setType(std::string &newType)
 {
-    this->type = type;
+    this->type = newType;
 }
 
-void Interaction::setNote(std::string &note)
+void Interaction::setNote(std::string &newNote)
 {
-    this->note = note;
+    this->note = newNote;
 }
 
-void Interaction::setTitle(std::string &title)
+void Interaction::setTitle(std::string &newTitle)
 {
-    this->title = title;
+    this->title = newTitle;
 }
 
-void Interaction::setParticipants(Contact &participant)
+void Interaction::setParticipants(Contact &newParticipant)
 {
-    this->participant = participant;
+    this->participant = newParticipant;
 }
 
-void Interaction::setModificationDate()
+void Interaction::updateModificationDate()
 {
     CurrentTime time = CurrentTime();
     this->modficationDate = time.getDateddmmyyyy();

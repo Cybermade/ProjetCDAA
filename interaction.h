@@ -7,7 +7,7 @@
 #include <iostream>
 
 /**
- * @brief The Interaction class
+ * @brief la classe interaction
  */
 class Interaction
 {
@@ -22,79 +22,93 @@ private:
 
 public:
     /**
-     * @brief Interaction constructor with params
-     * @param type
-     * @param title
-     * @param participants
+     * @brief Constructeur avec paramètres
+     * @param type d'intéraction
+     * @param title : titre de l'interaction
+     * @param participant est le contact qui participe à l'intéraction
      * @param note
      */
     Interaction(std::string& type, std::string& title, Contact& participant, std::string& note);
 
     /**
-     * @brief Interaction default constructor
+     * @brief Constructeur par défaut
      */
     Interaction();
-    /**
-     * @brief ~Interaction destructor
-     */
+
     ~Interaction();
 
+    /**
+     * @brief Modifier une interaction
+     * @param type d'intéraction
+     * @param title : titre de l'interaction
+     * @param participant est le contact qui participe à l'intéraction
+     * @param note
+     * @param date de mofication
+     */
     void edit(std::string& type, std::string& title, Contact& participant, std::string& note, std::string date);
 
-    // GETTER & SETTER
     /**
      * @brief getTitle
-     * @return title : title of the interaction
+     * @return le titre de l'interaction
      */
     std::string getTitle() const;
+
     /**
      * @brief getDate
-     * @return date : date of the intereaction
+     * @return la date de l'interaction
      */
     std::string getDate() const;
+
     /**
      * @brief getParticipants
-     * @return participant of the interaction
+     * @return le participant de l'interaction
      */
     Contact getParticipant() const;
+
     /**
      * @brief getNote
-     * @return note : note of the interaction
+     * @return la note de l'interaction
      */
     std::string getNote() const;
 
     /**
      * @brief getType
-     * @return type : type of interaction
+     * @return le type d'interaction
      */
     std::string getType() const;
 
+    /**
+     * @brief getModificationDate
+     * @return la dernière date de modification
+     */
     std::string getModificationDate() const;
 
     /**
      * @brief setTitle
-     * @param title : title to change
+     * @param newTitle
      */
-    void setTitle(std::string& title);
+    void setTitle(std::string& newTitle);
+
     /**
-     * @brief setParticipant
-     * @param participant : participant of the interactions
+     * @brief setParticipants
+     * @param newParticipant
      */
-    void setParticipants(Contact& participant);
+    void setParticipants(Contact& newParticipant);
+
     /**
      * @brief setNote
-     * @param note : note of the interaction
+     * @param newNote
      */
-    void setNote(std::string& note);
+    void setNote(std::string& newNote);
 
     /**
-     * @brief setInteractionName
-     * @param name : name of the interaction
+     * @brief setType
+     * @param type
      */
-    void setType(std::string& type);
+    void setType(std::string& newType);
 
 
-    void setModificationDate();
+    void updateModificationDate();
 
 
 
