@@ -31,6 +31,11 @@ void Interaction::edit(std::string& type, std::string& title, Contact& participa
    updateModificationDate();
 }
 
+void Interaction::addToDo(ToDo ToDoToAdd)
+{
+    this->todos.push_back(ToDoToAdd);
+}
+
 std::string Interaction::getDate() const
 {
     return this->date;

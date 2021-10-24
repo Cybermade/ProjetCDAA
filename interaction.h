@@ -50,6 +50,20 @@ public:
     void edit(std::string& type, std::string& title, Contact& participant, std::string& note, std::string date);
 
     /**
+     * @brief addToDo
+     * @param ToDoToAdd
+     * @param interaction
+     */
+    void addToDo(ToDo ToDoToAdd);
+
+    /**
+     * @brief deleteToDo
+     * @param ToDoToDelete
+     * @param interaction
+     */
+    void deleteToDo(ToDo ToDoToDelete);
+
+    /**
      * @brief getTitle
      * @return le titre de l'interaction
      */
