@@ -31,6 +31,7 @@ std::string InteractionHandler::briefListOfParticipants(Interaction interaction)
     return participantsInfos;
 }
 
+
 void InteractionHandler::setInteractions(std::list<Interaction>& newInteractions)
 {
     this->interactions = newInteractions;
@@ -40,8 +41,6 @@ std::list<Interaction> InteractionHandler::getAllInteractions()
 {
     return this->interactions;
 }
-
-
 
 std::list<Interaction> InteractionHandler::getAllInteractionsByType(std::string& type)
 {

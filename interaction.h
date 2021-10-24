@@ -141,12 +141,17 @@ public:
      */
     void updateModificationDate();
 
+     /**
+     * @brief operator <<
+     * @return ToString of class Interaction
+     */
+    friend std::ostream& operator<<(std::ostream& stream, const Interaction& Interaction);
 
-
- /**
- * @brief operator <<
- * @return ToString of class Interaction
- */
-friend std::ostream& operator<<(std::ostream& stream, const Interaction& Interaction);
+    /**
+     * @brief operator == override : permet de comparer deux interaction
+     * @param interactionToCompare@ : l'interaction à comparer
+     * @return bool : true | false
+     */
+    bool operator==(const Interaction& interacationToCompare);
 };
 
