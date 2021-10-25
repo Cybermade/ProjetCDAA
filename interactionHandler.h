@@ -5,7 +5,9 @@
 #include "interaction.h"
 #include "contact.h"
 
-
+/**
+ * @brief Classe InteractionHandler
+ */
 class InteractionHandler
 {
 private:
@@ -13,71 +15,80 @@ private:
 
 public:
     /**
-     * @brief InteractionHandler
+     * @brief Constructeur par défaut
      */
     InteractionHandler();
 
+    /**
+     * @brief Constructeur avec paramètre
+     * @param liste des interacations
+     */
     InteractionHandler(std::list<Interaction>& interactions);
 
     /**
-     * @brief isParticipants
+     * @brief determine si un contact / participant est dans concerné par une interaction donnée^
      * @param interaction
-     * @return bool if a participants is in an interaction
+     * @return true | false si un participant est dans une interaction
      */
     bool isParticipant(Interaction& interaction, Contact& contact);
 
     /**
-     * @brief briefListOfParticipants
+     * @brief retourne une compilation de courtes descriptions de chaque participant d'une interaction
      * @param interaction
-     * @return short description of participant in text
+     * @return Courtes descriptions de chaque participant d'une interaction
      */
     std::string briefListOfParticipants(Interaction interaction);
 
     /**
      * @brief setInteractions
-     * @param interactions : interacations to be added
+     * @param newInteractions
      */
-    void setInteractions(std::list<Interaction>& interactions);
+    void setInteractions(std::list<Interaction>& newInteractions);
 
     /**
-     * @brief getAllInteractions
-     * @return list of all interactions
+     * @brief Retourne sans tri les interactions
+     * @return toutes les interactions de l'application
      */
     std::list<Interaction> getAllInteractions();
 
     /**
-     * @brief getAllInteractionsByType
+     * @brief Permet d'avoir toutes les interactions ayant le même type
      * @param type
-     * @return All interactions with the same type
+     * @return Toutes les interactions avec le même type
      */
     std::list<Interaction> getAllInteractionsByType(std::string& type);
 
     /**
-     * @brief getAllInteractionsByParticipant
+     * @brief Permet d'avoir toutes les interactions avec le même participant (ou contact)
      * @param participant
-     * @return All interactions with the same participant
+     * @return Toutes les interactions avec le même participant
      */
     std::list<Interaction> getAllInteractionsByParticipant(Contact& participant);
 
     /**
-     * @brief getAllInteractionsByDate
+     * @brief Permet d'avoir toutes les interactions avec la même date
      * @param time
-     * @return All interactions with the same date
+     * @return Toutes les interactions avec la même date
      */
     std::list<Interaction> getAllInteractionsByDate(std::string& time);
 
 
     /**
-     * @brief deleteAnInteraction
+     * @brief Permet de supprimer une interaction donnée de l'application
      * @param InteractionTodelete
      */
     void deleteAnInteraction(Interaction& InteractionTodelete);
 
     /**
-     * @brief addAnInteraction
+     * @brief Permet d'ajouter une interaction à l'application
      * @param InteractionToAdd
      */
     void addAnInteraction(Interaction& InteractionToAdd);
+
+    /**
+     * @brief Permet d'afficher toutes les interactions en mode console
+     */
+    void showAllInteractions();
 
 };
 

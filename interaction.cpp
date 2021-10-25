@@ -28,7 +28,12 @@ void Interaction::edit(std::string& type, std::string& title, Contact& participa
    this->note = note;
    this->date = date;
 
-   setModificationDate();
+   updateModificationDate();
+}
+
+void Interaction::addToDo(ToDo ToDoToAdd)
+{
+    this->todos.push_back(ToDoToAdd);
 }
 
 std::string Interaction::getDate() const
@@ -61,27 +66,37 @@ std::string Interaction::getModificationDate() const
     return this->modficationDate;
 }
 
-void Interaction::setType(std::string &type)
+std::list<ToDo> Interaction::getToDos() const
 {
-    this->type = type;
+    return this->todos;
 }
 
-void Interaction::setNote(std::string &note)
+void Interaction::setType(std::string &newType)
 {
-    this->note = note;
+    this->type = newType;
 }
 
-void Interaction::setTitle(std::string &title)
+void Interaction::setNote(std::string &newNote)
 {
-    this->title = title;
+    this->note = newNote;
 }
 
-void Interaction::setParticipants(Contact &participant)
+void Interaction::setTitle(std::string &newTitle)
 {
-    this->participant = participant;
+    this->title = newTitle;
 }
 
-void Interaction::setModificationDate()
+void Interaction::setParticipants(Contact &newParticipant)
+{
+    this->participant = newParticipant;
+}
+
+void Interaction::setTodos(std::list<ToDo> newToDos)
+{
+    this->todos = newToDos;
+}
+
+void Interaction::updateModificationDate()
 {
     CurrentTime time = CurrentTime();
     this->modficationDate = time.getDateddmmyyyy();
@@ -91,11 +106,30 @@ std::ostream& operator<<(std::ostream& stream, const Interaction& interaction)
 {
   InteractionHandler interactionHandler = InteractionHandler();
 
-  return stream <<  interaction.getType() +
-                    " : [title] --> " + interaction.getTitle() + "; "
-                    " [date] --> " + interaction.getDate() + "; "
-                    " [Note] --> " + interaction.getNote() + "; "
-                    " [participant] --> " + interactionHandler.briefListOfParticipants(interaction) +
-                    " [modification date] --> " +interaction.getModificationDate() +
-                    ".\n";
+  std::list<ToDo> todos = interaction.getToDos();
+  std::string todosInString = "";
+
+  if(todos.empty())
+      todosInString = "no todo";
+  else
+      for(ToDo &todo : todos)
+        todosInString += todo.getContenu() + " " + todo.getDate() + ", ";
+
+
+
+  return stream <<  interaction.getType() + " : \n" +
+                    " [title] --> " + interaction.getTitle() + "; \n" +
+                    " [date] --> " + interaction.getDate() + "; \n" +
+                    " [note] --> " + interaction.getNote() + "; \n" +
+                    " [todo] --> " + todosInString + "; \n" +
+                    " [participant] --> " + interactionHandler.briefListOfParticipants(interaction) + "; \n" +
+                    " [modification date] --> " +interaction.getModificationDate() + ". \n";
+}
+
+bool Interaction::operator==(const Interaction &interacationToCompare)
+{
+    return this->type == interacationToCompare.type &&
+           this->date == interacationToCompare.date &&
+           this->participant == interacationToCompare.participant &&
+           this->title == interacationToCompare.title;
 }

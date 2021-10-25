@@ -3,10 +3,8 @@
 #include <iostream>
 #include <string>
 #include "currenttime.h"
-CurrentTime::CurrentTime()
-    :t(std::time(0)),now(std::localtime(&t))
+CurrentTime::CurrentTime():t(std::time(0)),now(std::localtime(&t))
 {
-
     now->tm_year += 1900;//tm_year gives years from 1900 that's why we add 1900
     now->tm_mon += 1;//+1 because tm->mon(from 0(january) to 11)
 
@@ -30,6 +28,7 @@ void CurrentTime::showLocalTime()
                       << now->tm_sec
                      << "\n";
 }
+
 std::string CurrentTime::getDateddmmyyyy()
 {   update();
     std::string date="";

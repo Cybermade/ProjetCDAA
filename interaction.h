@@ -1,13 +1,14 @@
 #pragma once
 #include "currenttime.h"
 #include "contact.h"
+#include "todo.h"
 #include <string>
 #include <ctime>
 #include <list>
 #include <iostream>
 
 /**
- * @brief The Interaction class
+ * @brief la classe interaction
  */
 class Interaction
 {
@@ -19,89 +20,138 @@ private:
     Contact participant;
     std::string note;
     std::string modficationDate = "No modification";
+    std::list<ToDo> todos;
 
 public:
     /**
-     * @brief Interaction constructor with params
-     * @param type
-     * @param title
-     * @param participants
+     * @brief Constructeur avec paramètres
+     * @param type d'intéraction
+     * @param title : titre de l'interaction
+     * @param participant est le contact qui participe à l'intéraction
      * @param note
      */
     Interaction(std::string& type, std::string& title, Contact& participant, std::string& note);
 
     /**
-     * @brief Interaction default constructor
+     * @brief Constructeur par défaut
      */
     Interaction();
-    /**
-     * @brief ~Interaction destructor
-     */
+
     ~Interaction();
 
+    /**
+     * @brief Modifier une interaction
+     * @param type d'intéraction
+     * @param title : titre de l'interaction
+     * @param participant est le contact qui participe à l'intéraction
+     * @param note
+     * @param date de mofication
+     */
     void edit(std::string& type, std::string& title, Contact& participant, std::string& note, std::string date);
 
-    // GETTER & SETTER
+    /**
+     * @brief Ajouter un ToDo à l'interaction
+     * @param ToDoToAdd
+     * @param interaction
+     */
+    void addToDo(ToDo ToDoToAdd);
+
+    /**
+     * @brief Supprimer une interaction
+     * @param ToDoToDelete
+     * @param interaction
+     */
+    void deleteToDo(ToDo ToDoToDelete);
+
     /**
      * @brief getTitle
-     * @return title : title of the interaction
+     * @return le titre de l'interaction
      */
     std::string getTitle() const;
+
     /**
      * @brief getDate
-     * @return date : date of the intereaction
+     * @return la date de l'interaction
      */
     std::string getDate() const;
+
     /**
      * @brief getParticipants
-     * @return participant of the interaction
+     * @return le participant de l'interaction
      */
     Contact getParticipant() const;
+
     /**
      * @brief getNote
-     * @return note : note of the interaction
+     * @return la note de l'interaction
      */
     std::string getNote() const;
 
     /**
      * @brief getType
-     * @return type : type of interaction
+     * @return le type d'interaction
      */
     std::string getType() const;
 
+    /**
+     * @brief getModificationDate
+     * @return la dernière date de modification
+     */
     std::string getModificationDate() const;
 
     /**
-     * @brief setTitle
-     * @param title : title to change
+     * @brief getToDos
+     * @return la liste des ToDo de l'interaction
      */
-    void setTitle(std::string& title);
+    std::list<ToDo> getToDos() const;
+
     /**
-     * @brief setParticipant
-     * @param participant : participant of the interactions
+     * @brief setTitle
+     * @param newTitle
      */
-    void setParticipants(Contact& participant);
+    void setTitle(std::string& newTitle);
+
+    /**
+     * @brief setParticipants
+     * @param newParticipant
+     */
+    void setParticipants(Contact& newParticipant);
+
     /**
      * @brief setNote
-     * @param note : note of the interaction
+     * @param newNote
      */
-    void setNote(std::string& note);
+    void setNote(std::string& newNote);
 
     /**
-     * @brief setInteractionName
-     * @param name : name of the interaction
+     * @brief setType
+     * @param NewType
      */
-    void setType(std::string& type);
+    void setType(std::string& newType);
 
+    /**
+     * @brief setTodos
+     * @param newToDos
+     */
+    void setTodos(std::list<ToDo> newToDos);
 
-    void setModificationDate();
+    /**
+     * @brief Met à jour la date dernière date de
+     * modification de l'intéraction à la date courante
+     */
+    void updateModificationDate();
 
+     /**
+     * @brief operator <<
+     * @return ToString of class Interaction
+     */
+    friend std::ostream& operator<<(std::ostream& stream, const Interaction& Interaction);
 
-
- /**
- * @brief operator <<
- * @return ToString of class Interaction
- */
-friend std::ostream& operator<<(std::ostream& stream, const Interaction& Interaction);
+    /**
+     * @brief operator == override : permet de comparer deux interaction
+     * @param interactionToCompare : l'interaction à comparer
+     * @return bool : true | false
+     */
+    bool operator==(const Interaction& interacationToCompare);
 };
 
