@@ -67,7 +67,7 @@ public:
 
     //Surchage de "==" ce qui nous permet de vérifier si 2 contacts sont égales(ici dans notre cas ils sont égales si ils ont le même
     //nom et le même prénom)
-    bool operator==(const Contact& b);
+    bool operator==(const Contact& b)const ;
 
 
 

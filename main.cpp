@@ -49,9 +49,9 @@ int main(int argc, char *argv[])
     C = C + p1;
     C += p;
     C -= p1;
-    std::cout <<std::boolalpha<<(p1==p);
-    C.editContact(1,Nom2,Photo,Mail,Entreprise,Telephone,Prenom);
-    C.showSheetAll();
+    std::cout <<std::boolalpha<<(p2==p1);
+    //C.editContact(1,Nom2,Photo,Mail,Entreprise,Telephone,Prenom);
+    //C.showSheetAll();
 /*
     C.showSheetAll();
 
