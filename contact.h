@@ -166,18 +166,12 @@ public:
      */
     friend std::ostream& operator<<(std::ostream& stream, const Contact& contact);
 
-<<<<<<< HEAD
-    //Surchage de "==" ce qui nous permet de vérifier si 2 contacts sont égales(ici dans notre cas ils sont égales si ils ont le même
-    //nom et le même prénom)
-    bool operator==(const Contact& b)const ;
-=======
     /**
      * @brief operator == override : permet de comparer deux contact
      * @param b : le contact à comparer
      * @return bool : true | false
      */
     bool operator==(const Contact& b);
->>>>>>> 8a24e09a5c3a581dff88384300313ad0debbd011
 
 
 

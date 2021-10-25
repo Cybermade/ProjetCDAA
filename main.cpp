@@ -16,103 +16,180 @@
 
 int main(int argc, char *argv[])
 {
+    CurrentTime time = CurrentTime();
+
+    //Création d'un contact
+    std::string nom1 = "Dupont";
+    std::string prenom1 = "Marie";
+    std::string entreprise1 = "Facebook";
+    std::string mail1 = "example@gmail.com";
+    std::string tel1 = "568-485-522";
+    std::string photo1 = "/path/to/photo/marie";
+    Contact p1 = Contact(nom1, prenom1, entreprise1, mail1, tel1, photo1);
+
+    //Création d'un contact
+    std::string nom2 = "Edouard";
+    std::string prenom2 = "Albert";
+    std::string entreprise2 = "google";
+    std::string mail2 = "example@gmail.com";
+    std::string tel2 = "651-568-128";
+    std::string photo2 = "/path/to/photo/albert";
+    Contact p2 = Contact(nom2, prenom2, entreprise2, mail2, tel2, photo2);
+
+    //creation d'une interaction
+    std::string type1 = "Call";
+    std::string titre1 = "Visio avec Roubashof";
+    std::string note1 = "La porte de la cellule claqua en se refermant sur Roubachof";
+    Interaction i1 = Interaction(type1, titre1, p1, note1);
+
+    //creation d'une interaction
+    std::string type2 = "Meeting";
+    std::string titre2 = "Réunion avec Jean-Paul Sartre";
+    std::string note2 = "L'existentialisme est un humanisme";
+    Interaction i2 = Interaction(type2, titre2, p2, note2);
+
+    //création d'un todo
+    std::string contenu1 = "vérifier si Albert Camus et J-P Sartre sont proches";
+    ToDo todo1 = ToDo(contenu1);
+
+    //création d'un todo
+    std::string contenu2 = "demander un autographe par mail avant";
+    std::string date1 = "22/10/2021";
+    ToDo todo2 = ToDo(contenu2, date1);
+
+    //gestionnaire de contact
+    Contactsmanagement contacts = Contactsmanagement();
+
+    //gestionnaire d'interaction
+    InteractionHandler interactions = InteractionHandler();
+
+    std::cout << "Affichage d'un contact \n";
+    std::cout <<"---------- \n";
+
+    std::cout << p1;
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    //edition d'un contact
+    std::cout << "Affichage d'un contact modifié \n";
+    std::cout <<"---------- \n";
+
+    std::string nom1Correct = "Dupond";
+    p1.edit(nom1Correct, prenom1, entreprise1, mail1, tel1, photo1);
+    std::cout << p1;
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage de la liste de contact à sa création \n";
+    std::cout <<"---------- \n";
+
+    contacts.showSheetAll();
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage de la liste de contact après deux ajout \n";
+    std::cout <<"---------- \n";
+
+    contacts.addContact(p1);
+    contacts += p2;
+    contacts.showSheetAll();
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage de la liste de contact après la suppression d'un contact \n";
+    std::cout <<"---------- \n";
+
+    contacts.deleteContact(p1);
+    contacts.showSheetAll();
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage d'une interaction après sa création \n";
+    std::cout <<"---------- \n";
+
+    std::cout << i1;
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage d'une interaction après avoir ajouté des todo \n";
+    std::cout <<"---------- \n";
+
+    i2.addToDo(todo1);
+    i2.addToDo(todo2);
+    std::cout << i1;
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage d'une interaction après modification \n";
+    std::cout <<"---------- \n";
+
+    std::string titrecorrect = "Réunion avec Jean-Paul Sartre";
+    i2.edit(type2, titrecorrect, p2, note2, time.getDateddmmyyyy());
+    std::cout << i2;
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage de la liste d'interaction à sa création \n";
+    std::cout <<"---------- \n";
+
+    interactions.showAllInteractions();
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage de la liste d'interactions après deux ajout \n";
+    std::cout <<"---------- \n";
+
+    interactions.addAnInteraction(i1);
+    interactions.addAnInteraction(i2);
+    interactions.showAllInteractions();
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage des interactions par date \n";
+    std::cout <<"---------- \n";
+
+    std::string today = time.getDateddmmyyyy();
+    for(Interaction &i : interactions.getAllInteractionsByDate(today))
+        std::cout << i;
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+    std::cout << "Affichage des interactions par participant \n";
+    std::cout <<"---------- \n";
+
+    for(Interaction &i : interactions.getAllInteractionsByParticipant(p2))
+        std::cout << i;
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+
+    std::cout << "Affichage de la liste d'interactions après la suppression d'une interaction \n";
+    std::cout <<"---------- \n";
+
+    interactions.deleteAnInteraction(i2);
+    interactions.showAllInteractions();
+
+    std::cout << "----------  END\n";
+    std::cout <<"\n";
+
+
     /*QApplication a(argc, argv);
     MainWindow w;
     w.show();
 
     return a.exec();*/
-    std::string Nom = "Dupont";
-    std::string Prenom = "Marie";
-    std::string Entreprise = "Google";
-    std::string Mail = "Marieatgmaildotcom";
-    std::string Telephone = "21498024913";
-    std::string Photo = "photo1";
-
-    std::string Nom2 = "Durant";
-    std::string Prenom2 = "Maurice";
-    std::string Entreprise2 = "Facebook";
-    std::string Mail2 = "Mauriceatgmaildotcom";
-    std::string Telephone2 = "113241523312";
-    std::string Photo2 = "photo2";
-
-
-
-    
-
-    Contactsmanagement C;
-
-    Contact p ={Nom,Prenom,Entreprise,Mail,Telephone,Photo};
-    Contact p1(Nom2,Prenom2,Entreprise2,Mail2,Telephone2,Photo2);
-    Contact p2 ={Nom2,Prenom2,Entreprise,Mail,Telephone,Photo};
-
-    C += p;
-    C = C + p1;
-    C += p;
-    C -= p1;
-    std::cout <<std::boolalpha<<(p2==p1);
-    //C.editContact(1,Nom2,Photo,Mail,Entreprise,Telephone,Prenom);
-    //C.showSheetAll();
-/*
-    C.showSheetAll();
-
-
-    C.addContact(p);
-    C.addContact(p1);
-
-    C.showSheetAll();
-    C.editContact(1,Nom2,Photo,Mail,Entreprise,Telephone,Prenom);
-    C.deleteContact(p1);
-    C.showSheetAll();
-    C.deleteAll();
-    C.deleteAll();
-    C.showSheetAll();*/
-    /*
-    std::cout << "\n// surchage opérateur << pour contact //" << std::endl;
-    std::cout << p;
-
-    std::cout << "\n// remplissage et surchage opérateur << pour interaction //" << std::endl;
-    Interaction meet = Interaction();
-    std::cout << meet;
-
-    std::string type = "Meeting";
-    std::string title = "Une superbe réunion";
-    std::string note = "ceci est une note";
-    Interaction meet2 = Interaction(type, title, p, note);
-    std::cout << meet2;
-
-
-    std::cout << "\n// Affichage des interactions du type \"Meeting\" //" << std::endl;
-    std::string typeInteractionToShow = "Meeting";
-    InteractionHandler interactions = InteractionHandler();
-    interactions.addAnInteraction(meet);
-    interactions.addAnInteraction(meet2);
-    for(const Interaction& interaction : interactions.getAllInteractionsByType(typeInteractionToShow))
-        std::cout << interaction;
-
-    std::cout << "\n// Affichage des interactions de Dupont Marie //" << std::endl;
-    for(const Interaction& interaction : interactions.getAllInteractionsByParticipant(p))
-        std::cout << interaction;
-
-    std::cout << "\n// Affichage des interactions du 17/10/2021 //" << std::endl;
-    std::string date = "17/10/2021";
-    for(const Interaction& interaction : interactions.getAllInteractionsByDate(date))
-        std::cout << interaction;
-
-    std::cout << "\n// Modification d'une interaction //" << std::endl;
-    std::string typeEdit = "code review";
-    std::string titleEdit = "Une superbe réunion";
-    std::string noteEdit = "ceci est une note";
-    std::string dateEdit = "20/08/2022";
-    meet2.edit(typeEdit, titleEdit, p1, noteEdit, dateEdit);
-    std::cout << meet2;
-
-    /*
-    std::cout << "\n// surchage opérateur << pour todo //" << std::endl;
-    std::string ToDoContent = "Appeler M. X pour l'affaire Y";
-    ToDo rdv = ToDo(ToDoContent, date);
-    std::cout << rdv;
-    std::cout << "\n";
-    */
 
     return 0;
 }
