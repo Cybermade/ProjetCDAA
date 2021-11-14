@@ -318,7 +318,7 @@ void MainWindow::AffichageToDos(unsigned int id)
 void MainWindow::on_B_ConfirmerModif_clicked()
 {
     QString Q = "Not everything has been filled";
-    qDebug()<<idModification;
+
 
     try {
         if(FormContactIsEmptyM())
@@ -382,7 +382,7 @@ void MainWindow::EditInteractionById(unsigned int id)
 
     if(idChoixParticipant!=-1)
     {
-        qDebug()<<"salu";
+
         Contact c = CM.ContactById(idChoixParticipant);
         std::cout << c;
         IH.editInteraction(id,type,titre,c,note);
@@ -606,9 +606,9 @@ void MainWindow::on_B_ChoisirParticipant_clicked()
 void MainWindow::on_B_Choisir_clicked()
 {
     QModelIndexList indexes = ui->tableViewChoixContacts->selectionModel()->selectedRows();
-    //qDebug()<<indexes.size()<<"\n";
+
     idChoixParticipant = indexes.last().row();
-    qDebug()<<idChoixParticipant;
+
     if(AjoutInteraction)
         ui->Vues->setCurrentIndex(5);
     if(ModifInteraction)

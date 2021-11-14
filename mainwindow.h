@@ -103,33 +103,96 @@ private:
     InteractionHandler IH;
     bool AjoutInteraction;
     bool ModifInteraction;
-
+    /**
+     * @brief printLastAddedContactOnGui : Affiche le dernier contact ajouté
+     */
     void printLastAddedContactOnGui();
+    /**
+     * @brief printLastAddedInteractionOnGui : Affiche la dernière interaction ajoutée
+     */
     void printLastAddedInteractionOnGui();
+    /**
+     * @brief printLastAddedTodo : Affiche le dernier ToDo ajouté
+     */
     void printLastAddedTodo();
 
-
+    /**
+     * @brief AffichageContacts
+     */
     void AffichageContacts();
+    /**
+     * @brief AffichageInteractions
+     */
     void AffichageInteractions();
+    /**
+     * @brief AffichageToDos : Affiche les todos d'une interaction
+     * @param id
+     */
     void AffichageToDos(unsigned int id);
-
+    /**
+     * @brief ClearFormContact
+     */
     void ClearFormContact();
+    /**
+     * @brief ClearFormInteraction
+     */
     void ClearFormInteraction();
-
+    /**
+     * @brief FormContactIsEmpty
+     * @return
+     */
     bool FormContactIsEmpty();
+    /**
+     * @brief FormContactIsEmptyM
+     * @return
+     */
     bool FormContactIsEmptyM();
+    /**
+     * @brief FormInteractionIsEmpty
+     * @return
+     */
     bool FormInteractionIsEmpty();
+    /**
+     * @brief FormInteractionIsEmptyM
+     * @return
+     */
     bool FormInteractionIsEmptyM();
+    /**
+     * @brief FormToDosIsEmpty
+     * @return
+     */
     bool FormToDosIsEmpty();
-
+    /**
+     * @brief EditContactById
+     * @param id
+     */
     void EditContactById(unsigned int id);
+    /**
+     * @brief EditInteractionById
+     * @param id
+     */
     void EditInteractionById(unsigned int id);
-
+    /**
+     * @brief PutDataIntoModifFieldContact
+     * @param id
+     */
     void PutDataIntoModifFieldContact(unsigned int id);
+    /**
+     * @brief PutDataIntoModifFieldInteraction
+     * @param id
+     */
     void PutDataIntoModifFieldInteraction(unsigned int id);
-
+    /**
+     * @brief ResetViewTableContacts
+     */
     void ResetViewTableContacts();
+    /**
+     * @brief ResetViewTableInteractions
+     */
     void ResetViewTableInteractions();
+    /**
+     * @brief ResetViewTableTodos
+     */
     void ResetViewTableTodos();
 
 };

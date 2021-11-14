@@ -22,22 +22,22 @@ Interaction::~Interaction(){}
 
 void Interaction::edit(std::string& type, std::string& title, Contact& participant, std::string& note)
 {
-   this->type = type;
-   this->title = title;
-   this->participant = participant;
-   this->note = note;
+    this->type = type;
+    this->title = title;
+    this->participant = participant;
+    this->note = note;
 
 
-   updateModificationDate();
+    updateModificationDate();
 }
 void Interaction::edit(std::string& type, std::string& title,std::string& note)
 {
-   this->type = type;
-   this->title = title;
-   this->note = note;
+    this->type = type;
+    this->title = title;
+    this->note = note;
 
 
-   updateModificationDate();
+    updateModificationDate();
 }
 
 void Interaction::addToDo(ToDo ToDoToAdd)
@@ -46,10 +46,9 @@ void Interaction::addToDo(ToDo ToDoToAdd)
 }
 void Interaction::deleteToDo(ToDo ToDoToDelete)
 {
-    std::cout<<"s";
-    std::cout<<ToDoToDelete<<std::endl;
+
     this->todos.remove(ToDoToDelete);
-    std::cout<< this->ToDoById(0);
+
 }
 
 std::string Interaction::getDate() const
@@ -120,50 +119,50 @@ void Interaction::updateModificationDate()
 
 std::ostream& operator<<(std::ostream& stream, const Interaction& interaction)
 {
-  InteractionHandler interactionHandler = InteractionHandler();
+    InteractionHandler interactionHandler = InteractionHandler();
 
-  std::list<ToDo> todos = interaction.getToDos();
-  std::string todosInString = "";
+    std::list<ToDo> todos = interaction.getToDos();
+    std::string todosInString = "";
 
-  if(todos.empty())
-      todosInString = "no todo";
-  else
-      for(ToDo &todo : todos)
-        todosInString += todo.getContenu() + " " + todo.getDate() + ", ";
+    if(todos.empty())
+        todosInString = "no todo";
+    else
+        for(ToDo &todo : todos)
+            todosInString += todo.getContenu() + " " + todo.getDate() + ", ";
 
 
 
-  return stream <<  interaction.getType() + " : \n" +
-                    " [title] --> " + interaction.getTitle() + "; \n" +
-                    " [date] --> " + interaction.getDate() + "; \n" +
-                    " [note] --> " + interaction.getNote() + "; \n" +
-                    " [todo] --> " + todosInString + "; \n" +
-                    " [participant] --> " + interactionHandler.briefListOfParticipants(interaction) + "; \n" +
-                    " [modification date] --> " +interaction.getModificationDate() + ". \n";
+    return stream <<  interaction.getType() + " : \n" +
+                      " [title] --> " + interaction.getTitle() + "; \n" +
+                      " [date] --> " + interaction.getDate() + "; \n" +
+                      " [note] --> " + interaction.getNote() + "; \n" +
+                      " [todo] --> " + todosInString + "; \n" +
+                      " [participant] --> " + interactionHandler.briefListOfParticipants(interaction) + "; \n" +
+                      " [modification date] --> " +interaction.getModificationDate() + ". \n";
 }
 
 bool Interaction::operator==(const Interaction &interacationToCompare)
 {
     return this->type == interacationToCompare.type &&
-           this->date == interacationToCompare.date &&
-           this->participant == interacationToCompare.participant &&
-           this->title == interacationToCompare.title;
+            this->date == interacationToCompare.date &&
+            this->participant == interacationToCompare.participant &&
+            this->title == interacationToCompare.title;
 }
 ToDo Interaction::ToDoById(unsigned int id)
 {
     try {
-            if ( todos.size() > id )
-            {
-                std::list<ToDo>::iterator itr = todos.begin();
-                std::advance(itr,id);
-                return(*itr);
-            }
-            else{
-                throw id;
-            }
-        }
-        catch(unsigned int id)
+        if ( todos.size() > id )
         {
-            std::cout << "The Size Of The List Of ToDos Should Be Greater Than The Id"<<std::endl;
+            std::list<ToDo>::iterator itr = todos.begin();
+            std::advance(itr,id);
+            return(*itr);
         }
+        else{
+            throw id;
+        }
+    }
+    catch(unsigned int id)
+    {
+        std::cout << "The Size Of The List Of ToDos Should Be Greater Than The Id"<<std::endl;
+    }
 }
