@@ -103,6 +103,7 @@ public:
      * @brief Clear la liste
      */
     void deleteAll();
-
+    Contact ContactById(unsigned int id);
+    std::list<Contact> getContactsList();
 
 };

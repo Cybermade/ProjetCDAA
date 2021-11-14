@@ -142,4 +142,26 @@ Contactsmanagement::~Contactsmanagement()
 {
     m_contactsmanagement.clear();
 }
+Contact Contactsmanagement::ContactById(unsigned int id)
+{
+    try {
+            if ( m_contactsmanagement.size() > id )
+            {
+                std::list<Contact>::iterator itr = m_contactsmanagement.begin();
+                std::advance(itr,id);
+                return(*itr);
+            }
+            else{
+                throw id;
+            }
+        }
+        catch(unsigned int id)
+        {
+            std::cout << "The Size Of The List Of Contacts Should Be Greater Than The Id"<<std::endl;
+        }
 
+}
+std::list<Contact> Contactsmanagement::getContactsList()
+{
+    return m_contactsmanagement;
+}

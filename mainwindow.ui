@@ -6,35 +6,524 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>873</width>
+    <height>383</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ProjetCDAA</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QStackedWidget" name="Vues">
+      <property name="currentIndex">
+       <number>8</number>
+      </property>
+      <widget class="QWidget" name="MenuPrincipale">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="B_GestionContacts">
+          <property name="text">
+           <string>Gestion Contacts</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_GesionInteractions">
+          <property name="text">
+           <string>Gestion Interactions</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="VueAjoutContact">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="nomLabel">
+            <property name="text">
+             <string>Nom</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="nomLineEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="prNomLabel">
+            <property name="text">
+             <string>Prénom</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="prNomLineEdit"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="entrepriseLabel">
+            <property name="text">
+             <string>Entreprise</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="entrepriseLineEdit"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="mailLabel">
+            <property name="text">
+             <string>Mail</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="mailLineEdit"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="tLPhoneLabel">
+            <property name="text">
+             <string>Téléphone</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="tLPhoneLineEdit"/>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="photoLabel">
+            <property name="text">
+             <string>Photo</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="photoLineEdit"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="B_ConfirmerAjout">
+            <property name="text">
+             <string>Confirmer Ajout</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="B_AnnulerAjout">
+            <property name="text">
+             <string>Annuler</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="VueContacts">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QTableView" name="tableViewContacts"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_Ajouter">
+          <property name="text">
+           <string>Ajouter Contact</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_Modifier">
+          <property name="text">
+           <string>Modifier Contact</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_Supprimer">
+          <property name="text">
+           <string>Supprimer Contact</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_Retour">
+          <property name="text">
+           <string>Retour</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="VueModif">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QFormLayout" name="formLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="nomLabelM">
+            <property name="text">
+             <string>Nom</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="nomLineEditM"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="prNomLabelM">
+            <property name="text">
+             <string>Prénom</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="prNomLineEditM"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="entrepriseLabelM">
+            <property name="text">
+             <string>Entreprise</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="entrepriseLineEditM"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="mailLabelM">
+            <property name="text">
+             <string>Mail</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="mailLineEditM"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="tLPhoneLabelM">
+            <property name="text">
+             <string>Téléphone</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="tLPhoneLineEditM">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="photoLabelM">
+            <property name="text">
+             <string>Photo</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="photoLineEditM"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="1" column="0">
+           <widget class="QPushButton" name="B_AnnulerModif">
+            <property name="text">
+             <string>Annuler</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="B_ConfirmerModif">
+            <property name="text">
+             <string>Confirmer Modification</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="VueInteractions">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTableView" name="tableViewInteractions"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_AfficherToDos">
+          <property name="text">
+           <string>Afficher ToDos</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_AjoutInteraction">
+          <property name="text">
+           <string>Ajouter Interaction</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_ModifierInteraction">
+          <property name="text">
+           <string>Modifier Interaction</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_SupprimerInteraction">
+          <property name="text">
+           <string>Supprimer Interaction</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_RetourInteraction">
+          <property name="text">
+           <string>Retour</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="VueAjoutInteraction">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <layout class="QFormLayout" name="formLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="titreLabel">
+            <property name="text">
+             <string>Titre</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="titreLineEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="typeLabel">
+            <property name="text">
+             <string>Type</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="typeLineEdit"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="noteLabel">
+            <property name="text">
+             <string>Note</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="noteLineEdit"/>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="B_ChoisirParticipant">
+            <property name="text">
+             <string>Choisir Participant</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="B_ConfirmerAjoutInteraction">
+            <property name="text">
+             <string>Confirmer Ajout</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="B_AnnulerAjoutInteraction">
+            <property name="text">
+             <string>Annuler</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="VueModifInteraction">
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <layout class="QFormLayout" name="formLayout_4">
+          <item row="0" column="0">
+           <widget class="QLabel" name="titreLabelM">
+            <property name="text">
+             <string>Titre</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="titreLineEditM"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="typeLabelM">
+            <property name="text">
+             <string>Type</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="typeLineEditM"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="noteLabelM">
+            <property name="text">
+             <string>Note</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="noteLineEditM"/>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="B_ModifierParticipant">
+            <property name="text">
+             <string>Modifier Participant</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="B_ConfirmerModificationInteraction">
+            <property name="text">
+             <string>Confirmer Modification</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="B_AnnulerModifInteraction">
+            <property name="text">
+             <string>Annuler</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="VueTodos">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QTableView" name="tableViewTodos"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_AjouterTodo">
+          <property name="text">
+           <string>Ajouter ToDo</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_SupprimerTodo">
+          <property name="text">
+           <string>Supprimer ToDo</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_RetourTodos">
+          <property name="text">
+           <string>Retour</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <layout class="QFormLayout" name="formLayout_5">
+          <item row="0" column="0">
+           <widget class="QLabel" name="contenuLabel">
+            <property name="text">
+             <string>Contenu</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="contenuLineEdit"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCalendarWidget" name="calendarWidget"/>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="B_ConfirmerAjoutTodos">
+            <property name="text">
+             <string>Confirmer Ajout</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="B_RetourAjoutTodos">
+            <property name="text">
+             <string>Retour</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Date</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page">
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <widget class="QTableView" name="tableViewChoixContacts"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_Choisir">
+          <property name="text">
+           <string>Choisir Participant</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="B_RetourChoixParticipant">
+          <property name="text">
+           <string>Annuler</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>873</width>
      <height>25</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFichier">
-    <property name="title">
-     <string>Fichier</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menudd">
-    <property name="title">
-     <string>dd</string>
-    </property>
-   </widget>
-   <addaction name="menuFichier"/>
-   <addaction name="menudd"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

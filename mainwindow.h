@@ -2,6 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QListWidget>
+#include <QDebug>
+#include <QString>
+#include <cmath>
+#include <QMessageBox>
+#include <QTableWidgetItem>
+#include <QStandardItemModel>
+#include <contactsmanagement.h>
+#include <interactionHandler.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +24,115 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+private slots:
+    void on_B_GestionContacts_clicked();
+
+    void on_B_GesionInteractions_clicked();
+
+    void on_B_AnnulerAjout_clicked();
+
+    void on_B_ConfirmerAjout_clicked();
+
+    void on_B_Ajouter_clicked();
+
+    void on_B_Modifier_clicked();
+
+    void on_B_Supprimer_clicked();
+
+    void on_B_Retour_2_clicked();
+
+    void ActivateAdd();
+
+    void on_B_ConfirmerModif_clicked();
+
+    void on_B_AnnulerModif_clicked();
+
+    void on_B_RetourInteraction_clicked();
+
+    void on_B_Retour_clicked();
+
+    void on_B_AjoutInteraction_clicked();
+
+    void on_B_ModifierInteraction_clicked();
+
+    void on_B_SupprimerInteraction_clicked();
+
+    void on_B_ConfirmerAjoutInteraction_clicked();
+
+    void on_B_AnnulerAjoutInteraction_clicked();
+
+    void on_B_ChoisirParticipant_clicked();
+
+    void on_B_Choisir_clicked();
+
+    void on_B_AfficherToDos_clicked();
+
+    void on_B_AjouterTodo_clicked();
+
+    void on_B_SupprimerTodo_clicked();
+
+    void on_B_RetourTodos_clicked();
+
+    void on_B_ConfirmerAjoutTodos_clicked();
+
+    void on_B_RetourAjoutTodos_clicked();
+
+    void on_B_RetourChoixParticipant_clicked();
+
+    void on_B_ModifierParticipant_clicked();
+
+    void on_B_ConfirmerModificationInteraction_clicked();
+
+    void on_B_AnnulerModifInteraction_clicked();
+
+
+
+
 private:
     Ui::MainWindow *ui;
+    CurrentTime T;
+    QStandardItemModel *modelContacts;
+    QStandardItemModel *modelInteractions;
+    QStandardItemModel *modelTodos;
+
+
+
+    int idModification;
+    int idChoixParticipant;
+    int idChoixInteraction;
+    Contactsmanagement CM;
+    InteractionHandler IH;
+    bool AjoutInteraction;
+    bool ModifInteraction;
+
+    void printLastAddedContactOnGui();
+    void printLastAddedInteractionOnGui();
+    void printLastAddedTodo();
+
+
+    void AffichageContacts();
+    void AffichageInteractions();
+    void AffichageToDos(unsigned int id);
+
+    void ClearFormContact();
+    void ClearFormInteraction();
+
+    bool FormContactIsEmpty();
+    bool FormContactIsEmptyM();
+    bool FormInteractionIsEmpty();
+    bool FormInteractionIsEmptyM();
+    bool FormToDosIsEmpty();
+
+    void EditContactById(unsigned int id);
+    void EditInteractionById(unsigned int id);
+
+    void PutDataIntoModifFieldContact(unsigned int id);
+    void PutDataIntoModifFieldInteraction(unsigned int id);
+
+    void ResetViewTableContacts();
+    void ResetViewTableInteractions();
+    void ResetViewTableTodos();
+
 };
 #endif // MAINWINDOW_H

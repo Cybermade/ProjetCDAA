@@ -20,13 +20,22 @@ Interaction::Interaction(std::string& type, std::string& title, Contact& partici
 
 Interaction::~Interaction(){}
 
-void Interaction::edit(std::string& type, std::string& title, Contact& participant, std::string& note, std::string date)
+void Interaction::edit(std::string& type, std::string& title, Contact& participant, std::string& note)
 {
    this->type = type;
    this->title = title;
    this->participant = participant;
    this->note = note;
-   this->date = date;
+
+
+   updateModificationDate();
+}
+void Interaction::edit(std::string& type, std::string& title,std::string& note)
+{
+   this->type = type;
+   this->title = title;
+   this->note = note;
+
 
    updateModificationDate();
 }
@@ -34,6 +43,13 @@ void Interaction::edit(std::string& type, std::string& title, Contact& participa
 void Interaction::addToDo(ToDo ToDoToAdd)
 {
     this->todos.push_back(ToDoToAdd);
+}
+void Interaction::deleteToDo(ToDo ToDoToDelete)
+{
+    std::cout<<"s";
+    std::cout<<ToDoToDelete<<std::endl;
+    this->todos.remove(ToDoToDelete);
+    std::cout<< this->ToDoById(0);
 }
 
 std::string Interaction::getDate() const
@@ -132,4 +148,22 @@ bool Interaction::operator==(const Interaction &interacationToCompare)
            this->date == interacationToCompare.date &&
            this->participant == interacationToCompare.participant &&
            this->title == interacationToCompare.title;
+}
+ToDo Interaction::ToDoById(unsigned int id)
+{
+    try {
+            if ( todos.size() > id )
+            {
+                std::list<ToDo>::iterator itr = todos.begin();
+                std::advance(itr,id);
+                return(*itr);
+            }
+            else{
+                throw id;
+            }
+        }
+        catch(unsigned int id)
+        {
+            std::cout << "The Size Of The List Of ToDos Should Be Greater Than The Id"<<std::endl;
+        }
 }

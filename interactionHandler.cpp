@@ -83,3 +83,113 @@ void InteractionHandler::showAllInteractions()
         std::cout << "\n";
     }
 }
+Interaction InteractionHandler::InteractionById(unsigned int id)
+{
+    try {
+            if ( interactions.size() > id )
+            {
+                std::list<Interaction>::iterator itr = interactions.begin();
+                std::advance(itr,id);
+                return(*itr);
+            }
+            else{
+                throw id;
+            }
+        }
+        catch(unsigned int id)
+        {
+            std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
+        }
+
+}
+void InteractionHandler::deleteInteractionById(unsigned int id)
+{
+    try {
+            if ( interactions.size() > id )
+            {
+                std::list<Interaction>::iterator itr = interactions.begin();
+                std::advance(itr,id);
+                interactions.erase(itr);
+
+            }
+            else{
+                throw id;
+            }
+        }
+        catch(unsigned int id)
+        {
+            std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
+        }
+}
+void InteractionHandler::editInteraction(unsigned int id, std::string &type, std::string &titre, Contact p, std::string &note)
+{
+    try {
+            if ( interactions.size() > id )
+            {
+                std::list<Interaction>::iterator itr = interactions.begin();
+                std::advance(itr,id);
+                itr->edit(type,titre,p,note);
+            }
+            else
+            {
+                throw id;
+            }
+        }
+        catch (unsigned int id) {
+            std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
+        }
+}
+void InteractionHandler::editInteraction(unsigned int id, std::string &type, std::string &titre, std::string &note)
+{
+    try {
+            if ( interactions.size() > id )
+            {
+                std::list<Interaction>::iterator itr = interactions.begin();
+                std::advance(itr,id);
+                itr->edit(type,titre,note);
+            }
+            else
+            {
+                throw id;
+            }
+        }
+        catch (unsigned int id) {
+            std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
+        }
+}
+void InteractionHandler::addToDoForInteraction(unsigned int id, ToDo add)
+{
+    try {
+            if ( interactions.size() > id )
+            {
+                std::list<Interaction>::iterator itr = interactions.begin();
+                std::advance(itr,id);
+                itr->addToDo(add);
+            }
+            else
+            {
+                throw id;
+            }
+        }
+        catch (unsigned int id) {
+            std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
+        }
+}
+void InteractionHandler::deleteToDoForInteraction(unsigned int id, ToDo D)
+{
+    try {
+            if ( interactions.size() > id )
+            {
+                std::list<Interaction>::iterator itr = interactions.begin();
+                std::advance(itr,id);
+                itr->deleteToDo(D);
+            }
+            else
+            {
+                throw id;
+            }
+        }
+        catch (unsigned int id) {
+            std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
+        }
+}

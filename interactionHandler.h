@@ -5,6 +5,7 @@
 #include "interaction.h"
 #include "contact.h"
 
+
 /**
  * @brief Classe InteractionHandler
  */
@@ -89,6 +90,18 @@ public:
      * @brief Permet d'afficher toutes les interactions en mode console
      */
     void showAllInteractions();
+
+    Interaction InteractionById(unsigned int id);
+    void deleteInteractionById(unsigned int id);
+    void editInteraction(unsigned int id,std::string& type,
+                    std::string& titre,Contact p
+                     ,std::string& note);
+    void editInteraction(unsigned int id,std::string& type,
+                         std::string& titre
+                          ,std::string& note);
+    void addToDoForInteraction(unsigned int id, ToDo add);
+    void deleteToDoForInteraction(unsigned int id, ToDo D);
+
 
 };
 

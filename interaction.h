@@ -19,7 +19,7 @@ private:
     std::string date;
     Contact participant;
     std::string note;
-    std::string modficationDate = "No modification";
+    std::string modficationDate = "Pas De Modification";
     std::list<ToDo> todos;
 
 public:
@@ -45,9 +45,16 @@ public:
      * @param title : titre de l'interaction
      * @param participant est le contact qui participe à l'intéraction
      * @param note
-     * @param date de mofication
      */
-    void edit(std::string& type, std::string& title, Contact& participant, std::string& note, std::string date);
+
+    void edit(std::string& type, std::string& title, Contact& participant, std::string& note);
+    /**
+     * @brief Modifier une interaction
+     * @param type d'intéraction
+     * @param title : titre de l'interaction
+     * @param note
+     */
+    void edit(std::string& type, std::string& title, std::string& note);
 
     /**
      * @brief Ajouter un ToDo à l'interaction
@@ -153,5 +160,11 @@ public:
      * @return bool : true | false
      */
     bool operator==(const Interaction& interacationToCompare);
+    /**
+     * @brief ToDoById : retourne un ToDo à partir de son id dans la liste
+     * @param id
+     * @return ToDo
+     */
+    ToDo ToDoById(unsigned int id);
 };
 

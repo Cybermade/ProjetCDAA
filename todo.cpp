@@ -41,3 +41,9 @@ std::ostream& operator<<(std::ostream& stream, const ToDo& todo)
 
     return stream << todo.contenu + todo.date;
 }
+bool ToDo::operator==(const ToDo& T)
+{
+    return typeid (*this) == typeid (T)
+           && this->getContenu() == T.getContenu()
+           && this->getDate() == T.getDate();
+}

@@ -56,6 +56,8 @@ public:
      * @return stream
      */
     friend std::ostream& operator<<(std::ostream& stream, const ToDo& todo);
+    bool operator==(const ToDo& T);
+
 };
 
 
