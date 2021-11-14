@@ -196,7 +196,7 @@ void MainWindow::on_B_Modifier_clicked()
 
 
             PutDataIntoModifFieldContact(idModification);
-            idModification = -1;
+
             ui->Vues->setCurrentIndex(3);
         }
     }  catch (QString Q) {
@@ -318,7 +318,7 @@ void MainWindow::AffichageToDos(unsigned int id)
 void MainWindow::on_B_ConfirmerModif_clicked()
 {
     QString Q = "Not everything has been filled";
-
+    qDebug()<<idModification;
 
     try {
         if(FormContactIsEmptyM())
@@ -326,7 +326,8 @@ void MainWindow::on_B_ConfirmerModif_clicked()
         else{
             EditContactById(idModification);
             ui->Vues->setCurrentIndex(2);
-            ClearFormContact();
+            idModification = -1;
+
         }
     }  catch (QString Q) {
         QMessageBox msgWarning;
@@ -801,5 +802,11 @@ void MainWindow::on_B_AnnulerModifInteraction_clicked()
 
     ui->Vues->setCurrentIndex(4);
     ClearFormInteraction();
+}
+
+
+void MainWindow::on_B_Ajouter_clicked()
+{
+    ui->Vues->setCurrentIndex(1);
 }
 

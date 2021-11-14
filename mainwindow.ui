@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="Vues">
       <property name="currentIndex">
-       <number>8</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="MenuPrincipale">
        <layout class="QHBoxLayout" name="horizontalLayout_2">

@@ -42,8 +42,6 @@ private slots:
 
     void on_B_Retour_2_clicked();
 
-    void ActivateAdd();
-
     void on_B_ConfirmerModif_clicked();
 
     void on_B_AnnulerModif_clicked();
