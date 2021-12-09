@@ -40,8 +40,6 @@ private slots:
 
     void on_B_Supprimer_clicked();
 
-    void on_B_Retour_2_clicked();
-
     void on_B_ConfirmerModif_clicked();
 
     void on_B_AnnulerModif_clicked();
@@ -85,7 +83,14 @@ private slots:
     void on_B_AnnulerModifInteraction_clicked();
 
 
+    void showImageOfContact();
 
+
+
+
+    void on_B_ChoisirPhoto_clicked();
+
+    void on_B_ChoisirPhotoM_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -194,6 +199,8 @@ private:
      * @brief ResetViewTableTodos
      */
     void ResetViewTableTodos();
+
+
 
 };
 #endif // MAINWINDOW_H

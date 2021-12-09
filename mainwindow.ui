@@ -14,11 +14,11 @@
    <string>ProjetCDAA</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
      <widget class="QStackedWidget" name="Vues">
       <property name="currentIndex">
-       <number>2</number>
+       <number>9</number>
       </property>
       <widget class="QWidget" name="MenuPrincipale">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -82,25 +82,32 @@
           <item row="3" column="1">
            <widget class="QLineEdit" name="mailLineEdit"/>
           </item>
-          <item row="4" column="0">
+          <item row="5" column="0">
            <widget class="QLabel" name="tLPhoneLabel">
             <property name="text">
              <string>Téléphone</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
+          <item row="5" column="1">
            <widget class="QLineEdit" name="tLPhoneLineEdit"/>
           </item>
-          <item row="6" column="0">
+          <item row="9" column="0">
            <widget class="QLabel" name="photoLabel">
             <property name="text">
              <string>Photo</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="1">
+          <item row="9" column="1">
            <widget class="QLineEdit" name="photoLineEdit"/>
+          </item>
+          <item row="10" column="1">
+           <widget class="QToolButton" name="B_ChoisirPhoto">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -125,35 +132,70 @@
        </layout>
       </widget>
       <widget class="QWidget" name="VueContacts">
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QTableView" name="tableViewContacts"/>
-        </item>
-        <item>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="3" column="0">
          <widget class="QPushButton" name="B_Ajouter">
           <property name="text">
            <string>Ajouter Contact</string>
           </property>
          </widget>
         </item>
-        <item>
+        <item row="6" column="0">
+         <widget class="QPushButton" name="B_Retour">
+          <property name="text">
+           <string>Retour</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QTableView" name="tableViewContacts"/>
+        </item>
+        <item row="4" column="0">
          <widget class="QPushButton" name="B_Modifier">
           <property name="text">
            <string>Modifier Contact</string>
           </property>
          </widget>
         </item>
-        <item>
+        <item row="2" column="2">
+         <widget class="Line" name="line_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
          <widget class="QPushButton" name="B_Supprimer">
           <property name="text">
            <string>Supprimer Contact</string>
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QPushButton" name="B_Retour">
+        <item row="1" column="1">
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="QlabelImage">
           <property name="text">
-           <string>Retour</string>
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="Line" name="line_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
@@ -229,6 +271,13 @@
           </item>
           <item row="5" column="1">
            <widget class="QLineEdit" name="photoLineEditM"/>
+          </item>
+          <item row="6" column="1">
+           <widget class="QToolButton" name="B_ChoisirPhotoM">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -448,7 +497,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2">
+      <widget class="QWidget" name="VoidAddtodos">
        <layout class="QVBoxLayout" name="verticalLayout_9">
         <item>
          <layout class="QFormLayout" name="formLayout_5">
@@ -490,7 +539,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page">
+      <widget class="QWidget" name="VueChoixContacts">
        <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
          <widget class="QTableView" name="tableViewChoixContacts"/>

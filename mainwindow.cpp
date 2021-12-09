@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QLabel>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -46,7 +47,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->calendarWidget->setGridVisible(false);
     ui->calendarWidget->setMaximumDate(QDate(2099, 12, 31));
 
+    ui->QlabelImage->setText("Pas D'image");
 
+    connect(
+      ui->tableViewContacts->selectionModel(),
+      SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+      SLOT(showImageOfContact())
+     );
 
 
 
@@ -244,12 +251,7 @@ void MainWindow::on_B_Supprimer_clicked()
 }
 
 
-void MainWindow::on_B_Retour_2_clicked()
-{
-    ui->Vues->setCurrentIndex(0);
-    ClearFormContact();
-}
-//Database load data update later
+
 void MainWindow::AffichageContacts()
 {
 
@@ -325,6 +327,7 @@ void MainWindow::on_B_ConfirmerModif_clicked()
             throw Q;
         else{
             EditContactById(idModification);
+            showImageOfContact();
             ui->Vues->setCurrentIndex(2);
             idModification = -1;
 
@@ -808,5 +811,53 @@ void MainWindow::on_B_AnnulerModifInteraction_clicked()
 void MainWindow::on_B_Ajouter_clicked()
 {
     ui->Vues->setCurrentIndex(1);
+}
+
+
+
+
+
+void MainWindow::showImageOfContact()
+{
+
+    QModelIndexList indexes = ui->tableViewContacts->selectionModel()->selectedRows();
+    ui->QlabelImage->clear();
+
+    if(indexes.size() != 0)
+    {
+        ui->QlabelImage->clear();
+        QString photo =  ui->tableViewContacts->model()->index(indexes.last().row(),5).data().toString();
+        QImage myImage;
+        myImage.load(photo);
+
+        if(QPixmap::fromImage(myImage).isNull())
+        {
+            ui->QlabelImage->setText("Pas D'image");
+        }
+        else
+        {
+            ui->QlabelImage->setPixmap(QPixmap::fromImage(myImage));
+        }
+
+
+    }
+
+}
+
+void MainWindow::on_B_ChoisirPhoto_clicked()
+{
+    QString FileName =
+            QFileDialog::getOpenFileName(this, "Choisir une image", "",
+                                         "Images (*.png *.xpm *.jpg)");
+    ui->photoLineEdit->setText(FileName);
+}
+
+
+void MainWindow::on_B_ChoisirPhotoM_clicked()
+{
+    QString FileName =
+            QFileDialog::getOpenFileName(this, "Choisir une image", "",
+                                         "Images (*.png *.xpm *.jpg)");
+    ui->photoLineEditM->setText(FileName);
 }
 
