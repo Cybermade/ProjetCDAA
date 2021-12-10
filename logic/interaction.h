@@ -1,7 +1,7 @@
 #pragma once
-#include "currenttime.h"
-#include "contact.h"
-#include "todo.h"
+#include "logic/currenttime.h"
+#include "logic/contact.h"
+#include "logic/todo.h"
 #include <string>
 #include <ctime>
 #include <list>

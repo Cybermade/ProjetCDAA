@@ -1,4 +1,5 @@
-QT       += core gui
+QT += core gui
+QT += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,26 +10,26 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    contact.cpp \
-    contactsmanagement.cpp \
-    currenttime.cpp \
-    interaction.cpp \
-    interactionHandler.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    todo.cpp
+    logic/contact.cpp \
+    logic/contactsmanagement.cpp \
+    logic/currenttime.cpp \
+    logic/interaction.cpp \
+    logic/interactionHandler.cpp \
+    logic/todo.cpp \
+    gui/mainwindow.cpp \
+    main.cpp
 
 HEADERS += \
-    contact.h \
-    contactsmanagement.h \
-    currenttime.h \
-    interaction.h \
-    interactionHandler.h \
-    mainwindow.h \
-    todo.h
+    logic/contact.h \
+    logic/contactsmanagement.h \
+    logic/currenttime.h \
+    logic/interaction.h \
+    logic/interactionHandler.h \
+    logic/todo.h \
+    gui/mainwindow.h
 
 FORMS += \
-    mainwindow.ui
+    gui/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

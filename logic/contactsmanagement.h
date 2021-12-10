@@ -2,8 +2,8 @@
 #include <vector>
 #include <list>
 #include <string>
-#include "contact.h"
-#include "currenttime.h"
+#include "logic/contact.h"
+#include "logic/currenttime.h"
 
 /**
  * @brief La classe contactManagement

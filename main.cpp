@@ -1,15 +1,15 @@
-#include "mainwindow.h"
+#include "gui/mainwindow.h"
 #include <thread>
 #include <chrono>
 #include <QApplication>
 #include <iostream>
 #include <iomanip>
-#include "contact.h"
-#include "contactsmanagement.h"
-#include "currenttime.h"
-#include "interaction.h"
-#include "interactionHandler.h"
-#include "todo.h"
+#include "logic/contact.h"
+#include "logic/contactsmanagement.h"
+#include "logic/currenttime.h"
+#include "logic/interaction.h"
+#include "logic/interactionHandler.h"
+#include "logic/todo.h"
 
 
 

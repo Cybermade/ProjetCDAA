@@ -1,6 +1,7 @@
 #pragma once
 #include "string"
-#include "currenttime.h"
+#include "logic/currenttime.h"
+#include <typeinfo>
 
 /**
  * @brief La classe ToDo

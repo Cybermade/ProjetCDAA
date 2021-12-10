@@ -2,8 +2,8 @@
 #include <string>
 #include <list>
 #include <algorithm>
-#include "interaction.h"
-#include "contact.h"
+#include "logic/interaction.h"
+#include "logic/contact.h"
 
 
 /**

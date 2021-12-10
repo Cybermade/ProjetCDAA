@@ -9,8 +9,8 @@
 #include <QMessageBox>
 #include <QTableWidgetItem>
 #include <QStandardItemModel>
-#include <contactsmanagement.h>
-#include <interactionHandler.h>
+#include <logic/contactsmanagement.h>
+#include <logic/interactionHandler.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
