@@ -1,21 +1,56 @@
-#include "mainwindow.h"
+#include "gui/mainwindow.h"
 #include <thread>
 #include <chrono>
 #include <QApplication>
 #include <iostream>
 #include <iomanip>
-#include "contact.h"
-#include "contactsmanagement.h"
-#include "currenttime.h"
-#include "interaction.h"
-#include "interactionHandler.h"
-#include "todo.h"
-
+#include "logic/contact.h"
+#include "logic/contactsmanagement.h"
+#include "logic/currenttime.h"
+#include "logic/interaction.h"
+#include "logic/interactionHandler.h"
+#include "logic/todo.h"
+#include "data/contactmodel.h"
 
 
 
 int main(int argc, char *argv[])
 {
+    std::string nom1 = "Dupont";
+    std::string prenom1 = "Marie";
+    std::string entreprise1 = "Facebook";
+    std::string mail1 = "example@gmail.com";
+    std::string tel1 = "0625468952";
+    std::string photo1 = "/path/to/photo/marie";
+    Contact p1 = Contact(nom1, prenom1, entreprise1, mail1, tel1, photo1);
+
+    //Création d'un contact
+    std::string nom2 = "Edouard";
+    std::string prenom2 = "Albert";
+    std::string entreprise2 = "google";
+    std::string mail2 = "example@gmail.com";
+    std::string tel2 = "0625478956";
+    std::string photo2 = "/path/to/photo/albert";
+    Contact p2 = Contact(nom2, prenom2, entreprise2, mail2, tel2, photo2);
+
+    ContactModel testSQL = ContactModel();
+
+    //testSQL.create(p1);
+    //testSQL.create(p2);
+    //testSQL.deletePermanently(p2);
+    testSQL.printAll();
+    std::cout << "\n";
+    //testSQL.update(p1, p2);
+    //testSQL.printAll();
+    //std::cout << testSQL.findByName(nom1);
+
+    /*for(const Contact& c : testSQL.read())
+    {
+        std::cout << c << "\n";
+    }*/
+    //testSQL.printAll();
+
+    /*
     CurrentTime time = CurrentTime();
 
     //Création d'un contact
@@ -185,7 +220,7 @@ int main(int argc, char *argv[])
     std::cout <<"\n";
 
 
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
 
