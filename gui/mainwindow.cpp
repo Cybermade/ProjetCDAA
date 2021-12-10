@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QLabel>
 #include <QFileDialog>
+#include <data/contactmodel.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -101,6 +102,34 @@ MainWindow::~MainWindow()
     CM.showSheetAll();
     std::cout<<"----------------------------\n\n";
     IH.showAllInteractions();
+
+   std::string nom1 = "Dupont";
+   std::string prenom1 = "Marie";
+   std::string entreprise1 = "Facebook";
+   std::string mail1 = "example@gmail.com";
+   std::string tel1 = "0625468952";
+   std::string photo1 = "/path/to/photo/marie";
+   Contact p1 = Contact(nom1, prenom1, entreprise1, mail1, tel1, photo1);
+
+   //Création d'un contact
+   std::string nom2 = "Edouard";
+   std::string prenom2 = "Albert";
+   std::string entreprise2 = "google";
+   std::string mail2 = "example@gmail.com";
+   std::string tel2 = "0625478956";
+   std::string photo2 = "/path/to/photo/albert";
+   Contact p2 = Contact(nom2, prenom2, entreprise2, mail2, tel2, photo2);
+
+   ContactModel testSQL = ContactModel();
+
+   //testSQL.create(p1);
+   //testSQL.create(p2);
+   //testSQL.deletePermanently(p2);
+   testSQL.printAll();
+   std::cout << "\n";
+   //testSQL.update(p1, p2);
+   //testSQL.printAll();
+   //std::cout << testSQL.findByName(nom1);
 
 }
 
