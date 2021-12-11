@@ -36,12 +36,12 @@ std::list<Interaction> InteractionModel::read()
       showSQLError(query);
     else{
 
-        while(query.next())
-        {
-            Interaction interactionFound;
-            interactionFound = hydrate(interactionFound, query);
-            interactions.push_back(interactionFound);
-        }
+        Interaction contactFound;
+        if (query.last())
+            do {
+                contactFound = hydrate(contactFound, query);
+                interactions.push_back(contactFound);
+            } while (query.previous());
     }
 
     return interactions;
@@ -95,6 +95,7 @@ bool InteractionModel::isExist(Interaction interactionToFind)
 
 Interaction InteractionModel::hydrate(Interaction interactionToHydrate, QSqlQuery query)
 {
+
     int id = query.value(0).toInt();
     std::string type = query.value(1).toString().toStdString();
     std::string title = query.value(2).toString().toStdString();

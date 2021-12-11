@@ -37,13 +37,12 @@ std::list<Contact> ContactModel::read()
     if(!query.exec())
       showSQLError(query);
     else{
-
-        while(query.next())
-        {
-            Contact contactFound;
-            contactFound = hydrate(contactFound, query);
-            contacts.push_back(contactFound);
-        }
+        Contact contactFound;
+        if (query.last())
+            do {
+                contactFound = hydrate(contactFound, query);
+                contacts.push_back(contactFound);
+            } while (query.previous());
     }
 
     return contacts;

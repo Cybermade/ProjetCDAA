@@ -2,8 +2,7 @@
 
 InteractionHandler::InteractionHandler()
 {
-    if(this->interactions.empty())
-        this->interactions = fetchBDD();
+    this->interactions = fetchBDD();
 }
 
 InteractionHandler::InteractionHandler(std::list<Interaction>& interactions)
@@ -13,8 +12,8 @@ InteractionHandler::InteractionHandler(std::list<Interaction>& interactions)
 
 void InteractionHandler::addAnInteraction(Interaction &InteractionToAdd)
 {
-    this->linkWithBDD.create(InteractionToAdd);
     this->interactions.push_back(InteractionToAdd);
+    this->linkWithBDD.create(InteractionToAdd);
 }
 
 void InteractionHandler::deleteAnInteraction(Interaction &InteractionTodelete)
