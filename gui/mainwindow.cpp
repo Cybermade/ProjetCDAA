@@ -259,8 +259,6 @@ void MainWindow::AffichageContacts()
 
     auto data = CM.getContactsList();
 
-
-
     QList<QStandardItem*> rowData;
     Q_FOREACH(const auto &item, data){
         rowData.clear();
@@ -270,15 +268,15 @@ void MainWindow::AffichageContacts()
         rowData << new QStandardItem(QString::fromStdString(item.getMail()));
         rowData << new QStandardItem(QString::fromStdString(item.getPhoneNumber()));
         rowData << new QStandardItem(QString::fromStdString(item.getPhoto()));
+        rowData << new QStandardItem(QString::fromStdString(item.getCreationDate()));
+        rowData << new QStandardItem(QString::fromStdString(item.getModificationDate()));
 
 
         modelContacts->appendRow(rowData);
 
     }
-
-
-
 }
+
 void MainWindow::AffichageInteractions()
 {
     auto data = IH.getAllInteractions();
