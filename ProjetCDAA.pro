@@ -12,6 +12,7 @@ CONFIG += c++17
 SOURCES += \
     data/contactmodel.cpp \
     data/interactionmodel.cpp \
+    data/todomodel.cpp \
     logic/contact.cpp \
     logic/contactsmanagement.cpp \
     logic/currenttime.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
 HEADERS += \
     data/contactmodel.h \
     data/interactionmodel.h \
+    data/todomodel.h \
     logic/contact.h \
     logic/contactsmanagement.h \
     logic/currenttime.h \
