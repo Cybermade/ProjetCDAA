@@ -15,9 +15,9 @@ private:
     CurrentTime T;//Simple class de dateManagement
     std::string m_datelastdelete;//Date de la dernière suppresion
     std::list<Contact> m_contactsmanagement;//Contacts management
-    ContactModel linkWithBDD;
+    ContactModel linkWithBDD; //lien avec la BDD
 
-    void fetchBDD();
+
 
 
 public:
@@ -119,5 +119,7 @@ public:
      * @return
      */
     std::list<Contact> getContactsList();
+
+    std::list<Contact> fetchBDD();
 
 };

@@ -4,7 +4,8 @@
 
 Contactsmanagement::Contactsmanagement():T(),m_datelastdelete("No Delete Yet")
 {
-    fetchBDD();
+  if(m_contactsmanagement.empty())
+      m_contactsmanagement = fetchBDD();
 }
 void Contactsmanagement::addContact(const Contact &c)
 {
@@ -171,8 +172,9 @@ std::list<Contact> Contactsmanagement::getContactsList()
     return m_contactsmanagement;
 }
 
-void Contactsmanagement::fetchBDD()
+std::list<Contact> Contactsmanagement::fetchBDD()
 {
     std::list<Contact> contactFromBDD = this->linkWithBDD.read();
-    this->m_contactsmanagement.insert(this->m_contactsmanagement.end(), contactFromBDD.begin(), contactFromBDD.end());
+
+    return contactFromBDD;
 }
