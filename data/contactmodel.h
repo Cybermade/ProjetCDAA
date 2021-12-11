@@ -13,7 +13,6 @@ class ContactModel : public StorageHandler
 private:
     Contact hydrate(Contact contactToHydrate, QSqlQuery query);
     void bindAll(Contact contactToBind, QSqlQuery query);
-    void bindNameAndFirstName(Contact contactToBiend, QSqlQuery query);
     bool isExist(Contact ContactToFind);
 
 public:

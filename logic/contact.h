@@ -12,6 +12,7 @@ class Contact
 {
 private:
     CurrentTime T;//objet CurrentTime
+    int id;
     std::string m_lastname;//nom
     std::string m_firstname;//prenom
     std::string m_company;//entreprise
@@ -176,4 +177,6 @@ public:
 
 
 
+    int getId() const;
+    void setId(int newId);
 };

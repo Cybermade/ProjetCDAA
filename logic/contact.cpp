@@ -32,10 +32,6 @@ void Contact::edit(std::string &name, std::string &firstname, std::string &compa
     this->updateModificationDate();
 }
 
-
-
-
-
 void Contact::updateModificationDate()
 {
     this->m_modificationdate = T.getDateddmmyyyy();
@@ -101,6 +97,15 @@ std::string Contact::getModificationDate() const
     return m_modificationdate;
 }
 
+int Contact::getId() const
+{
+    return id;
+}
+
+void Contact::setId(int newId)
+{
+    id = newId;
+}
 
 void Contact::setLastName(std::string &name)
 {

@@ -67,10 +67,8 @@ bool ContactModel::update(Contact oldContact, Contact newContact)
                            photo             =    :photo,           \
                            creation_date     =    :creation_date,    \
                            modification_date =    :modification_date  \
-                       WHERE lastname = :oldLastname AND firstname = :oldFirstname");
+                       WHERE id = :id");
 
-        query.bindValue(":oldLastname", QString::fromStdString(oldContact.getLastName()));
-        query.bindValue(":oldFirstname", QString::fromStdString(oldContact.getFirstName()));
         bindAll(newContact, query);
 
         if(query.exec())
@@ -87,9 +85,8 @@ bool ContactModel::deletePermanently(Contact contactToDelete)
     bool success = false;
 
     QSqlQuery query;
-    query.prepare("DELETE FROM contact WHERE lastname = :lastname AND firstname = :firstname");
-
-    bindNameAndFirstName(contactToDelete, query);
+    query.prepare("DELETE FROM contact WHERE id = :id");
+    query.bindValue(":id", contactToDelete.getId());
 
     if(query.exec())
         success = true;
@@ -105,7 +102,6 @@ Contact ContactModel::findByName(std::string nameToFind)
     Contact contactFound;
     QSqlQuery query;
     query.prepare("SELECT * FROM contact WHERE lastname = :lastname");
-
     query.bindValue(":lastname", QString::fromStdString(nameToFind));
 
     if(query.exec())
@@ -126,9 +122,9 @@ bool ContactModel::isExist(Contact contactToFind)
 {
     int nbRows = 0;
     QSqlQuery query;
-    query.prepare("SELECT * FROM contact WHERE lastname = :lastname AND firstname = :firstname");
+    query.prepare("SELECT * FROM contact WHERE id = :id");
 
-    bindNameAndFirstName(contactToFind, query);
+    query.bindValue(":id", contactToFind.getId());
 
     if(query.exec())
     {
@@ -143,6 +139,7 @@ bool ContactModel::isExist(Contact contactToFind)
 
 Contact ContactModel::hydrate(Contact contactToHydrate, QSqlQuery query)
 {
+    int id = query.value(0).toInt();
     std::string lastname = query.value(1).toString().toStdString();
     std::string firstname = query.value(2).toString().toStdString();
     std::string compagny = query.value(3).toString().toStdString();
@@ -153,6 +150,7 @@ Contact ContactModel::hydrate(Contact contactToHydrate, QSqlQuery query)
     std::string modification = query.value(8).toString().toStdString();
 
 
+    contactToHydrate.setId(id);
     contactToHydrate.setFirstName(firstname);
     contactToHydrate.setLastName(lastname);
     contactToHydrate.setCompany(compagny);
@@ -167,6 +165,7 @@ Contact ContactModel::hydrate(Contact contactToHydrate, QSqlQuery query)
 
 void ContactModel::bindAll(Contact contactToBind, QSqlQuery query)
 {
+    query.bindValue(":id", contactToBind.getId());
     query.bindValue(":lastname", QString::fromStdString(contactToBind.getLastName()));
     query.bindValue(":firstname", QString::fromStdString(contactToBind.getFirstName()));
     query.bindValue(":compagny", QString::fromStdString(contactToBind.getCompany()));
@@ -175,12 +174,6 @@ void ContactModel::bindAll(Contact contactToBind, QSqlQuery query)
     query.bindValue(":photo", QString::fromStdString(contactToBind.getPhoto()));
     query.bindValue(":creation_date", QString::fromStdString(contactToBind.getCreationDate()));
     query.bindValue(":modification_date", QString::fromStdString(contactToBind.getModificationDate()));
-}
-
-void ContactModel::bindNameAndFirstName(Contact contactToBind, QSqlQuery query)
-{
-    query.bindValue(":lastname", QString::fromStdString(contactToBind.getLastName()));
-    query.bindValue(":firstname", QString::fromStdString(contactToBind.getFirstName()));
 }
 
 void ContactModel::printAll()
