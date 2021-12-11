@@ -9,6 +9,16 @@ Interaction::Interaction()
     this->note = "Undefined";
 }
 
+const std::string &Interaction::getModficationDate() const
+{
+    return modficationDate;
+}
+
+void Interaction::setModficationDate(const std::string &newModficationDate)
+{
+    modficationDate = newModficationDate;
+}
+
 Interaction::Interaction(std::string& type, std::string& title, Contact& participant, std::string& note)
 {
     this->type = type;
@@ -79,6 +89,27 @@ std::string Interaction::getType() const
 std::string Interaction::getModificationDate() const
 {
     return this->modficationDate;
+}
+
+int Interaction::getId() const
+{
+    return id;
+}
+
+const std::string &Interaction::getCreationDate() const
+{
+    return creationDate;
+}
+
+void Interaction::setCreationDate(const std::string &newCreationDate)
+{
+    creationDate = newCreationDate;
+}
+
+
+void Interaction::setId(int newId)
+{
+    id = newId;
 }
 
 std::list<ToDo> Interaction::getToDos() const

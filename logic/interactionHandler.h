@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "logic/interaction.h"
 #include "logic/contact.h"
+#include "data/interactionmodel.h"
 
 
 /**
@@ -13,6 +14,7 @@ class InteractionHandler
 {
 private:
     std::list<Interaction> interactions;
+    InteractionModel linkWithBDD;
 
 public:
     /**
@@ -135,7 +137,7 @@ public:
      */
     void deleteToDoForInteraction(unsigned int id, ToDo D);
 
-
+    std::list<Interaction> fetchBDD();
 };
 
 

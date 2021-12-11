@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QFileDialog>
 #include <data/contactmodel.h>
+#include <data/interactionmodel.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -103,8 +104,12 @@ MainWindow::~MainWindow()
     //std::cout<<"----------------------------\n\n";
     //IH.showAllInteractions();
 
-   ContactModel testSQL = ContactModel();
-   testSQL.printAll();
+   ContactModel contactSQL = ContactModel();
+   contactSQL.printAll();
+   std::cout << "\n";
+
+   InteractionModel interactionSQL = InteractionModel();
+   interactionSQL.printAll();
    std::cout << "\n";
 
 }
@@ -385,16 +390,13 @@ void MainWindow::EditInteractionById(unsigned int id)
 
     if(idChoixParticipant!=-1)
     {
-
         Contact c = CM.ContactById(idChoixParticipant);
-        std::cout << c;
         IH.editInteraction(id,type,titre,c,note);
     }
     else
-        IH.editInteraction(id,type,titre,note);
-
-    std::cout<<IH.InteractionById(id);
-
+    {
+        IH.editInteraction(id,type,titre, note);
+    }
 
     modelInteractions->item(id,0)->setData(QString::fromStdString(titre),Qt::DisplayRole);
     modelInteractions->item(id,1)->setData(QString::fromStdString(type),Qt::DisplayRole);

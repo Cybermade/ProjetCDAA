@@ -118,12 +118,32 @@ Contact ContactModel::findByName(std::string nameToFind)
     return contactFound;
 }
 
+Contact ContactModel::findById(int id)
+{
+    Contact contactFound;
+    QSqlQuery query;
+    query.prepare("SELECT * FROM contact WHERE id = :id");
+    query.bindValue(":id", id);
+
+    if(query.exec())
+    {
+        while (query.next())
+        {
+            contactFound = hydrate(contactFound, query);
+        }
+    }
+    else
+      showSQLError(query);
+
+
+    return contactFound;
+}
+
 bool ContactModel::isExist(Contact contactToFind)
 {
     int nbRows = 0;
     QSqlQuery query;
     query.prepare("SELECT * FROM contact WHERE id = :id");
-
     query.bindValue(":id", contactToFind.getId());
 
     if(query.exec())

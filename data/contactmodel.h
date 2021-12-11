@@ -22,6 +22,7 @@ public:
     bool update(Contact oldContact, Contact newContact);
     bool deletePermanently(Contact ContactToDelete);
     Contact findByName(std::string nameToFind);
+    Contact findById(int id);
     void printAll();
 
 };

@@ -14,11 +14,13 @@ class Interaction
 {
 private:
     CurrentTime time;
+    int id;
     std::string type;
     std::string title;
     std::string date;
     Contact participant;
     std::string note;
+    std::string creationDate = time.getDateddmmyyyy();
     std::string modficationDate = "Pas De Modification";
     std::list<ToDo> todos;
 
@@ -166,5 +168,11 @@ public:
      * @return ToDo
      */
     ToDo ToDoById(unsigned int id);
+    int getId() const;
+    void setId(int newId);
+    const std::string &getCreationDate() const;
+    void setCreationDate(const std::string &newCreationDate);
+    const std::string &getModficationDate() const;
+    void setModficationDate(const std::string &newModficationDate);
 };
 

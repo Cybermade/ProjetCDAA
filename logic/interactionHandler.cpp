@@ -2,7 +2,8 @@
 
 InteractionHandler::InteractionHandler()
 {
-
+    if(this->interactions.empty())
+        this->interactions = fetchBDD();
 }
 
 InteractionHandler::InteractionHandler(std::list<Interaction>& interactions)
@@ -12,6 +13,7 @@ InteractionHandler::InteractionHandler(std::list<Interaction>& interactions)
 
 void InteractionHandler::addAnInteraction(Interaction &InteractionToAdd)
 {
+    this->linkWithBDD.create(InteractionToAdd);
     this->interactions.push_back(InteractionToAdd);
 }
 
@@ -83,6 +85,7 @@ void InteractionHandler::showAllInteractions()
         std::cout << "\n";
     }
 }
+
 Interaction InteractionHandler::InteractionById(unsigned int id)
 {
     try {
@@ -102,6 +105,7 @@ Interaction InteractionHandler::InteractionById(unsigned int id)
     }
 
 }
+
 void InteractionHandler::deleteInteractionById(unsigned int id)
 {
     try {
@@ -121,6 +125,7 @@ void InteractionHandler::deleteInteractionById(unsigned int id)
         std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
     }
 }
+
 void InteractionHandler::editInteraction(unsigned int id, std::string &type, std::string &titre, Contact p, std::string &note)
 {
     try {
@@ -128,7 +133,12 @@ void InteractionHandler::editInteraction(unsigned int id, std::string &type, std
         {
             std::list<Interaction>::iterator itr = interactions.begin();
             std::advance(itr,id);
+            Interaction oldInteraction = *itr; //interaction de base
             itr->edit(type,titre,p,note);
+            Interaction newInteraction = *itr; //nouvelle interaction à partir de l'édition faite par l'utilisateur
+            this->linkWithBDD.update(oldInteraction, newInteraction);
+
+            std::cout << oldInteraction.getParticipant().getId();
         }
         else
         {
@@ -139,6 +149,7 @@ void InteractionHandler::editInteraction(unsigned int id, std::string &type, std
         std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
     }
 }
+
 void InteractionHandler::editInteraction(unsigned int id, std::string &type, std::string &titre, std::string &note)
 {
     try {
@@ -146,7 +157,11 @@ void InteractionHandler::editInteraction(unsigned int id, std::string &type, std
         {
             std::list<Interaction>::iterator itr = interactions.begin();
             std::advance(itr,id);
+            Interaction oldInteraction = *itr; //interaction de base
+            Contact oldPerson = itr->getParticipant(); //contact à garder de l'interaction de base
             itr->edit(type,titre,note);
+            Interaction newInteraction = *itr; //nouvelle interaction à partir de l'édition faite par l'utilisateur
+            this->linkWithBDD.update(oldInteraction, newInteraction);
         }
         else
         {
@@ -157,6 +172,7 @@ void InteractionHandler::editInteraction(unsigned int id, std::string &type, std
         std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
     }
 }
+
 void InteractionHandler::addToDoForInteraction(unsigned int id, ToDo add)
 {
     try {
@@ -175,6 +191,7 @@ void InteractionHandler::addToDoForInteraction(unsigned int id, ToDo add)
         std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
     }
 }
+
 void InteractionHandler::deleteToDoForInteraction(unsigned int id, ToDo D)
 {
     try {
@@ -192,4 +209,11 @@ void InteractionHandler::deleteToDoForInteraction(unsigned int id, ToDo D)
     catch (unsigned int id) {
         std::cout << "The Size Of The List Of Interactions Should Be Greater Than The Id"<<std::endl;
     }
+}
+
+std::list<Interaction> InteractionHandler::fetchBDD()
+{
+    std::list<Interaction> interactionFromBDD = this->linkWithBDD.read();
+    return interactionFromBDD;
+
 }
