@@ -193,6 +193,7 @@ void ContactModel::printAll()
 
         Contact contact;
 
+        showBDDstatus();
         while(query.next())
         {
             QString id = query.value(0).toString();

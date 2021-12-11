@@ -4,7 +4,6 @@ StorageHandler::StorageHandler()
 {
     configureBDDConnection();
     setBDDStatus(isBDDConnection());
-    showBDDstatus();
 }
 
 void StorageHandler::configureBDDConnection()
