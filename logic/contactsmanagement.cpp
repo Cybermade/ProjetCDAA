@@ -1,9 +1,10 @@
 #include <iostream>
 #include "contactsmanagement.h"
 
+
 Contactsmanagement::Contactsmanagement():T(),m_datelastdelete("No Delete Yet")
 {
-    //void
+    fetchBDD();
 }
 void Contactsmanagement::addContact(const Contact &c)
 {
@@ -13,7 +14,7 @@ void Contactsmanagement::addContact(const Contact &c)
 void Contactsmanagement::addContact(std::string name, std::string firstname, std::string company, std::string mail, std::string phonenumber, std::string photo)
 {
     this->m_contactsmanagement.push_back(Contact(name,firstname,company,mail,phonenumber,photo));
-
+    this->linkWithBDD.create(Contact(name,firstname,company,mail,phonenumber,photo));
 }
 
 void Contactsmanagement::editContact(unsigned int id, std::string &name, std::string &firstname, std::string &company, std::string &mail, std::string &phonenumber, std::string &photo)
@@ -161,7 +162,14 @@ Contact Contactsmanagement::ContactById(unsigned int id)
         }
 
 }
+
 std::list<Contact> Contactsmanagement::getContactsList()
 {
     return m_contactsmanagement;
+}
+
+void Contactsmanagement::fetchBDD()
+{
+    std::list<Contact> contactFromBDD = this->linkWithBDD.read();
+    this->m_contactsmanagement.insert(this->m_contactsmanagement.end(), contactFromBDD.begin(), contactFromBDD.end());
 }

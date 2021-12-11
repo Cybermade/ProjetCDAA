@@ -141,8 +141,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_B_GestionContacts_clicked()
 {
     ui->Vues->setCurrentIndex(2);
-
-
 }
 
 
@@ -156,7 +154,6 @@ void MainWindow::on_B_AnnulerAjout_clicked()
 {
     ui->Vues->setCurrentIndex(2);
     ClearFormContact();
-
 }
 
 

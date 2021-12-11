@@ -4,6 +4,7 @@
 #include <string>
 #include "logic/contact.h"
 #include "logic/currenttime.h"
+#include "data/contactmodel.h"
 
 /**
  * @brief La classe contactManagement
@@ -14,6 +15,10 @@ private:
     CurrentTime T;//Simple class de dateManagement
     std::string m_datelastdelete;//Date de la dernière suppresion
     std::list<Contact> m_contactsmanagement;//Contacts management
+    ContactModel linkWithBDD;
+
+    void fetchBDD();
+
 
 public:
     /**
