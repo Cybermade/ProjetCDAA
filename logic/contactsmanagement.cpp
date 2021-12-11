@@ -69,6 +69,7 @@ void Contactsmanagement::deleteContactById(unsigned int id)
             std::advance(itr,id);
             m_contactsmanagement.erase(itr);
             m_datelastdelete = T.getDateddmmyyyy();
+            this->linkWithBDD.deletePermanently(*itr);
         }
         else{
             throw id;
