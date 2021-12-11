@@ -23,7 +23,9 @@ void Contactsmanagement::editContact(unsigned int id, std::string &name, std::st
         {
             std::list<Contact>::iterator itr = m_contactsmanagement.begin();
             std::advance(itr,id);
+            Contact oldContact = *itr;
             itr->edit(name,firstname,company,mail,phonenumber,photo);
+            this->linkWithBDD.update(oldContact, *itr);
         }
         else
         {

@@ -18,7 +18,6 @@ private:
 
 public:
     ContactModel();
-
     bool create(Contact ContactToAdd);
     std::list<Contact> read();
     bool update(Contact oldContact, Contact newContact);
