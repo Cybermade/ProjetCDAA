@@ -75,6 +75,25 @@ bool InteractionModel::update(Interaction oldInteraction, Interaction newInterac
     return success;
 }
 
+bool InteractionModel::deletePermanently(Interaction interactionToDelete)
+{
+    bool success = false;
+
+    if(isExist(interactionToDelete))
+    {
+        QSqlQuery query;
+        query.prepare("DELETE FROM interaction WHERE id = :id");
+        query.bindValue(":id", interactionToDelete.getId());
+
+        if(query.exec())
+            success = true;
+        else
+          showSQLError(query);
+    }
+
+    return success;
+}
+
 bool InteractionModel::isExist(Interaction interactionToFind)
 {
     int nbRows = 0;

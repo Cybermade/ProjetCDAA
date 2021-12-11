@@ -113,6 +113,7 @@ void InteractionHandler::deleteInteractionById(unsigned int id)
             std::list<Interaction>::iterator itr = interactions.begin();
             std::advance(itr,id);
             interactions.erase(itr);
+            this->linkWithBDD.deletePermanently(*itr);
 
         }
         else{

@@ -18,7 +18,7 @@ public:
     bool create(Interaction interactionToAdd);
     std::list<Interaction> read();
     bool update(Interaction oldInteraction, Interaction newInteraction);
-    bool deletePermanently(Interaction InteractionToDelete);
+    bool deletePermanently(Interaction interactionToDelete);
     Interaction findByName(std::string nameToFind);
     void printAll();
 };
