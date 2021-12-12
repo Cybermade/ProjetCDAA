@@ -4,6 +4,7 @@
 #include <QFileDialog>
 #include <data/contactmodel.h>
 #include <data/interactionmodel.h>
+#include <data/todomodel.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -109,6 +110,10 @@ MainWindow::~MainWindow()
    std::cout << "\n";
 
    InteractionModel interactionSQL = InteractionModel();
+   interactionSQL.printAll();
+   std::cout << "\n";
+
+   ToDoModel ToDoSQL = ToDoModel();
    interactionSQL.printAll();
    std::cout << "\n";
 
