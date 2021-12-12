@@ -21,6 +21,26 @@ const std::string &ToDo::getContenu() const
     return contenu;
 }
 
+int ToDo::getId() const
+{
+    return id;
+}
+
+int ToDo::getIdInteraction() const
+{
+    return idInteraction;
+}
+
+void ToDo::setIdInteraction(int newIdInteraction)
+{
+    idInteraction = newIdInteraction;
+}
+
+void ToDo::setId(int newId)
+{
+    id = newId;
+}
+
 void ToDo::setContenu(const std::string &newContenu)
 {
     contenu = newContenu;

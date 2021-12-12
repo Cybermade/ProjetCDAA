@@ -4,7 +4,9 @@
 #include <algorithm>
 #include "logic/interaction.h"
 #include "logic/contact.h"
+#include "logic/todo.h"
 #include "data/interactionmodel.h"
+#include "data/todomodel.h"
 
 
 /**
@@ -15,6 +17,7 @@ class InteractionHandler
 private:
     std::list<Interaction> interactions;
     InteractionModel linkWithBDD;
+    ToDoModel toDoLinkWithBDD;
 
 public:
     /**

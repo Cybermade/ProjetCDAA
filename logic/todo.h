@@ -10,6 +10,8 @@ class ToDo
 {
 private:
     CurrentTime time;
+    int id;
+    int idInteraction;
     std::string contenu;
     std::string date;
 
@@ -64,6 +66,10 @@ public:
      */
     bool operator==(const ToDo& T);
 
+    int getId() const;
+    void setId(int newId);
+    int getIdInteraction() const;
+    void setIdInteraction(int newIdInteraction);
 };
 
 
