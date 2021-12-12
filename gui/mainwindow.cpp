@@ -114,7 +114,7 @@ MainWindow::~MainWindow()
    std::cout << "\n";
 
    ToDoModel ToDoSQL = ToDoModel();
-   interactionSQL.printAll();
+   ToDoSQL.printAll();
    std::cout << "\n";
 
 }

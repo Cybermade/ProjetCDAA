@@ -12,11 +12,13 @@ bool ToDoModel::create(ToDo ToDoToAdd)
 
     if(!isExist(ToDoToAdd))
     {
-        query.prepare("INSERT INTO\
-                       todo (contenu, date, interaction_id)\
-                       VALUES (:contenu, :date, :interaction");
+        query.prepare("INSERT INTO \
+                       todo (contenu, date, interaction_id) \
+                       VALUES (:contenu, :date, :interaction)");
 
         bindAll(ToDoToAdd, query);
+
+                std::cout << ToDoToAdd.getIdInteraction();
 
         if(query.exec())
             success = true;
@@ -32,7 +34,7 @@ std::list<ToDo> ToDoModel::read(int idInteraction)
 
     std::list<ToDo> toDos;
     QSqlQuery query;
-    query.prepare("SELECT * FROM interaction WHERE id = :id");
+    query.prepare("SELECT * FROM todo WHERE interaction_id = :id");
     query.bindValue(":id", idInteraction);
 
         if(!query.exec())
