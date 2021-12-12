@@ -66,9 +66,28 @@ public:
      */
     bool operator==(const ToDo& T);
 
+    /**
+     * @brief getId
+     * @return
+     */
     int getId() const;
+
+    /**
+     * @brief setId
+     * @param newId
+     */
     void setId(int newId);
+
+    /**
+     * @brief getIdInteraction
+     * @return
+     */
     int getIdInteraction() const;
+
+    /**
+     * @brief setIdInteraction
+     * @param newIdInteraction
+     */
     void setIdInteraction(int newIdInteraction);
 };
 
