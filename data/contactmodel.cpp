@@ -202,9 +202,7 @@ void ContactModel::printAll()
     if(!query.exec())
       showSQLError(query);
     else{
-
-        Contact contact;
-
+        
         showBDDstatus();
         while(query.next())
         {

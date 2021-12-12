@@ -36,11 +36,11 @@ std::list<Interaction> InteractionModel::read()
       showSQLError(query);
     else{
 
-        Interaction contactFound;
+        Interaction interactionFound;
         if (query.last())
             do {
-                contactFound = hydrate(contactFound, query);
-                interactions.push_back(contactFound);
+                interactionFound = hydrate(interactionFound, query);
+                interactions.push_back(interactionFound);
             } while (query.previous());
     }
 

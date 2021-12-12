@@ -114,6 +114,7 @@ void Interaction::setId(int newId)
 
 std::list<ToDo> Interaction::getToDos() const
 {
+
     return this->todos;
 }
 
