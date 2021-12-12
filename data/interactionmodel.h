@@ -11,10 +11,10 @@ class InteractionModel : public StorageHandler
 private:
     Interaction hydrate(Interaction interactionToHydrate, QSqlQuery query);
     void bindAll(Interaction interactionToBind, QSqlQuery query);
-    bool isExist(Interaction interactionToFind);
 
 public:
     InteractionModel();
+    bool isExist(Interaction interactionToFind);
     bool create(Interaction interactionToAdd);
     std::list<Interaction> read();
     bool update(Interaction oldInteraction, Interaction newInteraction);

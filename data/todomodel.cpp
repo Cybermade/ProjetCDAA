@@ -18,8 +18,6 @@ bool ToDoModel::create(ToDo ToDoToAdd)
 
         bindAll(ToDoToAdd, query);
 
-                std::cout << ToDoToAdd.getIdInteraction();
-
         if(query.exec())
             success = true;
         else
@@ -31,11 +29,10 @@ bool ToDoModel::create(ToDo ToDoToAdd)
 
 std::list<ToDo> ToDoModel::read(int idInteraction)
 {
-
     std::list<ToDo> toDos;
     QSqlQuery query;
-    query.prepare("SELECT * FROM todo WHERE interaction_id = :id");
-    query.bindValue(":id", idInteraction);
+    query.prepare("SELECT * FROM todo WHERE interaction_id = :interaction_id");
+    query.bindValue(":interaction_id", idInteraction);
 
         if(!query.exec())
           showSQLError(query);
@@ -50,6 +47,25 @@ std::list<ToDo> ToDoModel::read(int idInteraction)
         }
 
         return toDos;
+}
+
+bool ToDoModel::deletePermanently(ToDo ToDoToDelete)
+{
+    bool success = false;
+
+    if(isExist(ToDoToDelete))
+    {
+        QSqlQuery query;
+        query.prepare("DELETE FROM todo WHERE id = :id");
+        query.bindValue(":id", ToDoToDelete.getId());
+
+        if(query.exec())
+            success = true;
+        else
+          showSQLError(query);
+    }
+
+    return success;
 }
 
 bool ToDoModel::isExist(ToDo ToDoToFind)
@@ -90,7 +106,7 @@ void ToDoModel::bindAll(ToDo ToDoToBind, QSqlQuery query)
     query.bindValue(":id", ToDoToBind.getId());
     query.bindValue(":contenu", QString::fromStdString(ToDoToBind.getContenu()));
     query.bindValue(":date", QString::fromStdString(ToDoToBind.getDate()));
-    query.bindValue("interaction", ToDoToBind.getIdInteraction());
+    query.bindValue(":interaction", ToDoToBind.getIdInteraction());
 }
 
 void ToDoModel::printAll()

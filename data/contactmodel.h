@@ -13,10 +13,11 @@ class ContactModel : public StorageHandler
 private:
     Contact hydrate(Contact contactToHydrate, QSqlQuery query);
     void bindAll(Contact contactToBind, QSqlQuery query);
-    bool isExist(Contact ContactToFind);
 
 public:
+
     ContactModel();
+    bool isExist(Contact ContactToFind);
     bool create(Contact ContactToAdd);
     std::list<Contact> read();
     bool update(Contact oldContact, Contact newContact);

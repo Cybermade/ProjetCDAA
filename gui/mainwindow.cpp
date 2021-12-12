@@ -313,8 +313,6 @@ void MainWindow::AffichageToDos(unsigned int id)
 {
     auto data = IH.InteractionById(id).getToDos();
 
-
-
     QList<QStandardItem*> rowData;
     Q_FOREACH(const auto &item, data){
         rowData.clear();

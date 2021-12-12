@@ -92,6 +92,7 @@ Interaction InteractionHandler::InteractionById(unsigned int id)
         {
             std::list<Interaction>::iterator itr = interactions.begin();
             std::advance(itr,id);
+            itr->setTodos(this->toDoLinkWithBDD.read(itr->getId()));
             return(*itr);
         }
         else{
@@ -179,7 +180,11 @@ void InteractionHandler::addToDoForInteraction(unsigned int id, ToDo add)
         {
             std::list<Interaction>::iterator itr = interactions.begin();
             std::advance(itr,id);
+
+
+            add.setIdInteraction(itr->getId());
             itr->addToDo(add);
+            this->toDoLinkWithBDD.create(add);
         }
         else
         {
@@ -199,6 +204,12 @@ void InteractionHandler::deleteToDoForInteraction(unsigned int id, ToDo D)
             std::list<Interaction>::iterator itr = interactions.begin();
             std::advance(itr,id);
             itr->deleteToDo(D);
+
+            std::list<ToDo> TodoToD = this->toDoLinkWithBDD.read(itr->getId());
+
+            for(const ToDo& t : TodoToD)
+                  if(D.getDate() == t.getDate() && D.getContenu() == t.getContenu())
+                      this->toDoLinkWithBDD.deletePermanently(t);
         }
         else
         {

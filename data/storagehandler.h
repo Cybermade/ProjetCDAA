@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <QDir>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
