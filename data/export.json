@@ -30,5 +30,16 @@
             "phone": "02348647895",
             "photo": "/home/thomas/Images/dragon-mod.png"
         }
+    },
+    "interactions": {
+        "12": {
+            "creation date": "Pas De Modification",
+            "date": "12/12/2021",
+            "modification date": "12/12/2021",
+            "note": "test",
+            "participant": "3",
+            "title": "test too",
+            "type": "test"
+        }
     }
 }
