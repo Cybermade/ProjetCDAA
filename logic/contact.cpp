@@ -5,7 +5,7 @@
 Contact::Contact():T(),m_lastname("Unknown Name"),m_firstname("Unkown FirstName")
   ,m_company("Unknown Company"),m_mail("UnknownAtUnknownDotUnknown")
   ,m_phonenumber("Unknown Numberphone"),m_photo("Unknown Photo")
-  ,m_creationdate(T.getDateddmmyyyy())
+  ,m_creationdate(T.getDateddmmyyyy()),m_modificationdate("Pas De Modification")
 {
 
 }
@@ -13,7 +13,7 @@ Contact::Contact():T(),m_lastname("Unknown Name"),m_firstname("Unkown FirstName"
          ,std::string& mail,std::string& phonenumber,
          std::string& photo)
     :T(),m_lastname(name),m_firstname(firstname),m_company(company),m_mail(mail)
-    ,m_phonenumber(phonenumber),m_photo(photo),m_creationdate(T.getDateddmmyyyy())
+    ,m_phonenumber(phonenumber),m_photo(photo),m_creationdate(T.getDateddmmyyyy()),m_modificationdate("Pas De Modification")
 {
 
 
@@ -31,10 +31,6 @@ void Contact::edit(std::string &name, std::string &firstname, std::string &compa
     this->setPhoto(photo);
     this->updateModificationDate();
 }
-
-
-
-
 
 void Contact::updateModificationDate()
 {
@@ -101,6 +97,15 @@ std::string Contact::getModificationDate() const
     return m_modificationdate;
 }
 
+int Contact::getId() const
+{
+    return id;
+}
+
+void Contact::setId(int newId)
+{
+    id = newId;
+}
 
 void Contact::setLastName(std::string &name)
 {

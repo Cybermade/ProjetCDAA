@@ -1,6 +1,7 @@
 #pragma once
 #include "string"
-#include "currenttime.h"
+#include "logic/currenttime.h"
+#include <typeinfo>
 
 /**
  * @brief La classe ToDo
@@ -9,6 +10,8 @@ class ToDo
 {
 private:
     CurrentTime time;
+    int id;
+    int idInteraction;
     std::string contenu;
     std::string date;
 
@@ -56,6 +59,36 @@ public:
      * @return stream
      */
     friend std::ostream& operator<<(std::ostream& stream, const ToDo& todo);
+    /**
+     * @brief operator ==
+     * @param T
+     * @return bool
+     */
+    bool operator==(const ToDo& T);
+
+    /**
+     * @brief getId
+     * @return
+     */
+    int getId() const;
+
+    /**
+     * @brief setId
+     * @param newId
+     */
+    void setId(int newId);
+
+    /**
+     * @brief getIdInteraction
+     * @return
+     */
+    int getIdInteraction() const;
+
+    /**
+     * @brief setIdInteraction
+     * @param newIdInteraction
+     */
+    void setIdInteraction(int newIdInteraction);
 };
 
 

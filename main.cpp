@@ -1,22 +1,21 @@
-#include "mainwindow.h"
+#include "gui/mainwindow.h"
 #include <thread>
 #include <chrono>
 #include <QApplication>
 #include <iostream>
 #include <iomanip>
-#include "contact.h"
-#include "contactsmanagement.h"
-#include "currenttime.h"
-#include "interaction.h"
-#include "interactionHandler.h"
-#include "todo.h"
+#include "logic/contact.h"
+#include "logic/contactsmanagement.h"
+#include "logic/currenttime.h"
+#include "logic/interaction.h"
+#include "logic/interactionHandler.h"
+#include "logic/todo.h"
 
 
-
-
+//test
 int main(int argc, char *argv[])
 {
-    CurrentTime time = CurrentTime();
+/*    CurrentTime time = CurrentTime();
 
     //Création d'un contact
     std::string nom1 = "Dupont";
@@ -150,6 +149,7 @@ int main(int argc, char *argv[])
 
     interactions.addAnInteraction(i1);
     interactions.addAnInteraction(i2);
+    interactions.InteractionById(0).edit(type2,titre1,p1,note1,"time.getDateddmmyyyy()");
     interactions.showAllInteractions();
 
     std::cout << "----------  END\n";
@@ -178,18 +178,18 @@ int main(int argc, char *argv[])
     std::cout << "Affichage de la liste d'interactions après la suppression d'une interaction \n";
     std::cout <<"---------- \n";
 
-    interactions.deleteAnInteraction(i2);
+    //interactions.deleteAnInteraction(i2);
     interactions.showAllInteractions();
 
     std::cout << "----------  END\n";
-    std::cout <<"\n";
+    std::cout <<"\n";*/
 
-
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
 
-    return a.exec();*/
+    return a.exec();
 
-    return 0;
+
+
 }

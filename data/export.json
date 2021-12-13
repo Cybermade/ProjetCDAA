@@ -1,0 +1,52 @@
+{
+    "contacts": {
+        "1": {
+            "compagny": "GRDF",
+            "creation": "11/12/2021",
+            "firstname": "Galien",
+            "lastname": "Remy",
+            "mail": "garyg@grdf.fr",
+            "modification": "11/12/2021",
+            "phone": "0656485953",
+            "photo": "/home/thomas/Téléchargements/image_synthese_image_2021_Mohammed_Nazim_Hamidou_Thomas_Bénas.png"
+        },
+        "3": {
+            "compagny": "Mairie de Nice",
+            "creation": "11/12/2021",
+            "firstname": "Deni",
+            "lastname": "Raoul",
+            "mail": "denir@nice.fr",
+            "modification": "11/12/2021",
+            "phone": "0356488547",
+            "photo": "/home/thomas/Documents/projet/outils-maths/lena.png"
+        },
+        "4": {
+            "compagny": "untest",
+            "creation": "13/12/2021",
+            "firstname": "testpa",
+            "lastname": "testou",
+            "mail": "unetst@mail.fr",
+            "modification": "Pas De Modification",
+            "phone": "02348647895",
+            "photo": "/home/thomas/Images/dragon-mod.png"
+        }
+    },
+    "interactions": {
+        "12": {
+            "creation date": "Pas De Modification",
+            "date": "12/12/2021",
+            "modification date": "12/12/2021",
+            "note": "test",
+            "participant": "3",
+            "title": "test too",
+            "type": "test"
+        }
+    },
+    "todos": {
+        "55": {
+            "contenu": "@todo Test ajout ToDo",
+            "date": "@date 12/12/2021",
+            "interaction": "12"
+        }
+    }
+}

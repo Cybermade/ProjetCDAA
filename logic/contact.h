@@ -1,5 +1,5 @@
 #pragma once
-#include "currenttime.h"
+#include "logic/currenttime.h"
 #include <string>
 #include <ctime>
 #include <list>
@@ -12,6 +12,7 @@ class Contact
 {
 private:
     CurrentTime T;//objet CurrentTime
+    int id;
     std::string m_lastname;//nom
     std::string m_firstname;//prenom
     std::string m_company;//entreprise
@@ -176,4 +177,6 @@ public:
 
 
 
+    int getId() const;
+    void setId(int newId);
 };

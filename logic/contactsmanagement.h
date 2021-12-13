@@ -2,8 +2,9 @@
 #include <vector>
 #include <list>
 #include <string>
-#include "contact.h"
-#include "currenttime.h"
+#include "logic/contact.h"
+#include "logic/currenttime.h"
+#include "data/contactmodel.h"
 
 /**
  * @brief La classe contactManagement
@@ -14,6 +15,10 @@ private:
     CurrentTime T;//Simple class de dateManagement
     std::string m_datelastdelete;//Date de la dernière suppresion
     std::list<Contact> m_contactsmanagement;//Contacts management
+    ContactModel linkWithBDD; //lien avec la BDD
+
+
+
 
 public:
     /**
@@ -103,6 +108,18 @@ public:
      * @brief Clear la liste
      */
     void deleteAll();
+    /**
+     * @brief ContactById
+     * @param id
+     * @return
+     */
+    Contact ContactById(unsigned int id);
+    /**
+     * @brief getContactsList
+     * @return
+     */
+    std::list<Contact> getContactsList();
 
+    std::list<Contact> fetchBDD();
 
 };

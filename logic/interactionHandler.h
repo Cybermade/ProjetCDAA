@@ -2,8 +2,12 @@
 #include <string>
 #include <list>
 #include <algorithm>
-#include "interaction.h"
-#include "contact.h"
+#include "logic/interaction.h"
+#include "logic/contact.h"
+#include "logic/todo.h"
+#include "data/interactionmodel.h"
+#include "data/todomodel.h"
+
 
 /**
  * @brief Classe InteractionHandler
@@ -12,6 +16,8 @@ class InteractionHandler
 {
 private:
     std::list<Interaction> interactions;
+    InteractionModel linkWithBDD;
+    ToDoModel toDoLinkWithBDD;
 
 public:
     /**
@@ -89,7 +95,52 @@ public:
      * @brief Permet d'afficher toutes les interactions en mode console
      */
     void showAllInteractions();
+    /**
+     * @brief InteractionById
+     * @param id
+     * @return Interaction
+     */
+    Interaction InteractionById(unsigned int id);
+    /**
+     * @brief deleteInteractionById
+     * @param id
+     */
+    void deleteInteractionById(unsigned int id);
+    /**
+     * @brief editInteraction
+     * @param id
+     * @param type
+     * @param titre
+     * @param p
+     * @param note
+     */
+    void editInteraction(unsigned int id,std::string& type,
+                         std::string& titre,Contact p
+                         ,std::string& note);
+    /**
+     * @brief editInteraction
+     * @param id
+     * @param type
+     * @param titre
+     * @param note
+     */
+    void editInteraction(unsigned int id,std::string& type,
+                         std::string& titre
+                         ,std::string& note);
+    /**
+     * @brief addToDoForInteraction
+     * @param id
+     * @param add
+     */
+    void addToDoForInteraction(unsigned int id, ToDo add);
+    /**
+     * @brief deleteToDoForInteraction
+     * @param id
+     * @param D
+     */
+    void deleteToDoForInteraction(unsigned int id, ToDo D);
 
+    std::list<Interaction> fetchBDD();
 };
 
 

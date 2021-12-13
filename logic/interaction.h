@@ -1,7 +1,7 @@
 #pragma once
-#include "currenttime.h"
-#include "contact.h"
-#include "todo.h"
+#include "logic/currenttime.h"
+#include "logic/contact.h"
+#include "logic/todo.h"
 #include <string>
 #include <ctime>
 #include <list>
@@ -14,12 +14,14 @@ class Interaction
 {
 private:
     CurrentTime time;
+    int id;
     std::string type;
     std::string title;
     std::string date;
     Contact participant;
     std::string note;
-    std::string modficationDate = "No modification";
+    std::string creationDate = time.getDateddmmyyyy();
+    std::string modficationDate = "Pas De Modification";
     std::list<ToDo> todos;
 
 public:
@@ -45,9 +47,16 @@ public:
      * @param title : titre de l'interaction
      * @param participant est le contact qui participe à l'intéraction
      * @param note
-     * @param date de mofication
      */
-    void edit(std::string& type, std::string& title, Contact& participant, std::string& note, std::string date);
+
+    void edit(std::string& type, std::string& title, Contact& participant, std::string& note);
+    /**
+     * @brief Modifier une interaction
+     * @param type d'intéraction
+     * @param title : titre de l'interaction
+     * @param note
+     */
+    void edit(std::string& type, std::string& title, std::string& note);
 
     /**
      * @brief Ajouter un ToDo à l'interaction
@@ -153,5 +162,17 @@ public:
      * @return bool : true | false
      */
     bool operator==(const Interaction& interacationToCompare);
+    /**
+     * @brief ToDoById : retourne un ToDo à partir de son id dans la liste
+     * @param id
+     * @return ToDo
+     */
+    ToDo ToDoById(unsigned int id);
+    int getId() const;
+    void setId(int newId);
+    const std::string &getCreationDate() const;
+    void setCreationDate(const std::string &newCreationDate);
+    const std::string &getModficationDate() const;
+    void setModficationDate(const std::string &newModficationDate);
 };
 

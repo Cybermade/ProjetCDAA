@@ -1,0 +1,45 @@
+CREATE TABLE contact(
+    id INTEGER NOT NULL,
+    lastname varchar(45) NOT NULL,
+    firstname varchar(45) NOT NULL,
+    compagny varchar(100),
+    mail varchar(100),
+    phone_number varchar(35),
+    photo TEXT,
+    creation_date VARCHAR(30),
+    modification_date VARCHAR(30),
+
+    PRIMARY KEY (id AUTOINCREMENT)
+);
+
+
+CREATE TABLE interaction(
+    id INTEGER NOT NULL,
+    type VARCHAR(30),
+    title VARCHAR(60),
+    date VARCHAR(30),
+    participant INTEGER,
+    note TEXT,
+    creation_date VARCHAR(30),
+    modification_date VARCHAR(30),
+
+    PRIMARY KEY (id AUTOINCREMENT),
+
+    CONSTRAINT fk_participant 
+        FOREIGN KEY (participant)
+        REFERENCES contact (id)
+);
+
+
+CREATE TABLE todo(
+    id INTEGER NOT NULL,
+    contenu TEXT,
+    date VARCHAR(30),
+    interaction_id INTEGER,
+
+    PRIMARY KEY (id AUTOINCREMENT),
+
+    CONSTRAINT fk_interaction_id
+        FOREIGN KEY (interaction_id)
+        REFERENCES interaction (id)
+);
