@@ -5,12 +5,16 @@
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
 #include <iostream>
-#include <filesystem>
+#include <QDir>
+#include <QString>
+#include <QCoreApplication>
 
+/**
+ * @brief The StorageHandler class est une classe permettant de gérer les aspects fonctionels de la BDD (connexion, erreur SQL, etc)
+ */
 class StorageHandler
 {
 private:
-    const char* SQLFilePath = "/home/thomas/Documents/projet/ProjetCDAA/data/data.bd";
     QSqlDatabase database;
     bool BDDStatus = false;
 

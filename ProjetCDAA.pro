@@ -11,6 +11,7 @@ CONFIG += c++17
 
 SOURCES += \
     data/contactmodel.cpp \
+    data/export.cpp \
     data/interactionmodel.cpp \
     data/todomodel.cpp \
     logic/contact.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
 
 HEADERS += \
     data/contactmodel.h \
+    data/export.h \
     data/interactionmodel.h \
     data/todomodel.h \
     logic/contact.h \

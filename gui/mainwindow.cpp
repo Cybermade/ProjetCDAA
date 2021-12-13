@@ -5,6 +5,7 @@
 #include <data/contactmodel.h>
 #include <data/interactionmodel.h>
 #include <data/todomodel.h>
+#include <data/export.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -117,6 +118,8 @@ MainWindow::~MainWindow()
    ToDoSQL.printAll();
    std::cout << "\n";
 
+   Export e = Export();
+   e.exportToJson();
 }
 
 

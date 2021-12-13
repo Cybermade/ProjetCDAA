@@ -8,14 +8,15 @@ StorageHandler::StorageHandler()
 
 void StorageHandler::configureBDDConnection()
 {
+    QDir path;
     database = QSqlDatabase::addDatabase("QSQLITE");
-    database.setDatabaseName(SQLFilePath);
+    database.setDatabaseName(path.currentPath() + "/data/data.bd");
 }
 
 
 bool StorageHandler::isBDDConnection()
 {
-    return std::filesystem::exists(SQLFilePath) && database.open();
+    return database.open();
 }
 
 void StorageHandler::setBDDStatus(const bool& status)
@@ -25,8 +26,7 @@ void StorageHandler::setBDDStatus(const bool& status)
 
 void StorageHandler::showBDDstatus()
 {
-    std::string debugInfo = "BDD connection : not exist \n[path] = ";
-    debugInfo += SQLFilePath;
+    std::string debugInfo = "BDD connection : not exist \n";
 
     std::string out = (BDDStatus) ? "BDD connection : ok." : debugInfo ;
 
