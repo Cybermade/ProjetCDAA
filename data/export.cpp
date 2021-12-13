@@ -11,14 +11,15 @@ void Export::exportToJson()
     QDir dir;
     QString path = dir.currentPath() + "/data" + "/export.json";
 
-    bdd["contacts"] = serializeContactsForJson();
-    bdd["interactions"] = serializeInteractionsForJson();
+    bdd["contacts"] = serializeContactsJson();
+    bdd["interactions"] = serializeInteractionsJson();
+    bdd["todos"] = serializeToDoJson();
 
     writeInJsonFile(bdd, path);
 
 }
 
-QJsonObject Export::serializeContactsForJson()
+QJsonObject Export::serializeContactsJson()
 {
     QJsonObject contacts;
 
@@ -42,10 +43,11 @@ QJsonObject Export::serializeContactsForJson()
             contacts[queryContacts.value(0).toString()] = contact;
         }
    }
+
    return contacts;
 }
 
-QJsonObject Export::serializeInteractionsForJson()
+QJsonObject Export::serializeInteractionsJson()
 {
     QJsonObject interactions;
 
@@ -71,6 +73,31 @@ QJsonObject Export::serializeInteractionsForJson()
     }
 
    return interactions;
+}
+
+QJsonObject Export::serializeToDoJson()
+{
+    QJsonObject todos;
+
+    QSqlQuery queryToDos("SELECT * FROM todo");
+
+    if(!queryToDos.exec())
+        showSQLError(queryToDos);
+    else
+    {
+        while(queryToDos.next())
+        {
+            QJsonObject todo;
+
+            todo["contenu"] = queryToDos.value(1).toString();
+            todo["date"] = queryToDos.value(2).toString();
+            todo["interaction"] = queryToDos.value(3).toString();
+
+            todos[queryToDos.value(0).toString()] = todo;
+        }
+    }
+
+    return todos;
 }
 
 void Export::writeInJsonFile(QJsonObject jsonObjectToWrite, QString fileToWrite)

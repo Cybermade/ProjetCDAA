@@ -12,8 +12,9 @@ class Export : StorageHandler
 {
 
 private:
-QJsonObject serializeContactsForJson();
-QJsonObject serializeInteractionsForJson();
+QJsonObject serializeContactsJson();
+QJsonObject serializeInteractionsJson();
+QJsonObject serializeToDoJson();
 void writeInJsonFile(QJsonObject JsonObjectToWrite, QString fileToWrite);
 
 public:
